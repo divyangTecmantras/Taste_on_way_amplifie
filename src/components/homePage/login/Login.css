@@ -1,0 +1,49 @@
+.PopupBtnLogin {
+    width: 100%;
+    text-align: left;
+  }
+  .PopupBtnWidth {
+    width: 30px;
+    margin-left: 127px;
+  }
+  .BtnFacebook {
+    background-color: #3b5998;
+    color: #ffffff;
+  }
+  
+  .BtnFacebook:hover {
+    background-color: #294276;
+    color: #ffffff;
+  }
+  .PopupBtnLogin {
+    width: 100%;
+    text-align: left;
+  }
+  .BtnApple {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .BtnApple:hover {
+    background-color: #262525;
+    color: #ffffff;
+  }
+  .LineHeightDivider {
+    position: relative;
+    left: 18px;
+    top: 9px;
+  }
+  .TextColor {
+    color: #999999;
+  }
+  .ModalHomeFooter {
+    border-top: 0px !important;
+    padding-top: 10px;
+    padding-bottom: 25px;
+  }
+  .ModalHomeFooter {
+    display: block;
+  }
+  .WidthLoginBtn {
+    width: 100%;
+  }

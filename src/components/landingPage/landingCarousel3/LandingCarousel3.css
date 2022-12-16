@@ -1,0 +1,20 @@
+.DivClassControls {
+  display: flex;
+  position: relative;
+  right: 50px;
+  float: right;
+  bottom: 45px;
+}
+
+.ImgCarouselWidth {
+  width: 45px;
+}
+.ImgWidthStar {
+  width: 15px;
+  position: relative;
+  bottom: 2px;
+} 
+
+ .cardTextGrey {
+  color: #999999;
+}

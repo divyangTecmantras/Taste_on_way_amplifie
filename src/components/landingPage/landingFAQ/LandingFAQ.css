@@ -1,0 +1,32 @@
+.PaddingRestBottom {
+    padding-bottom: 65px;
+  }
+  .PaddingHomeAbout {
+    padding: 65px 0px 75px 0px;
+  }
+  .BtnCardHeadWhite {
+    background-color: #ffffff;
+  }
+  .BtnCardHeadWhite {
+    background-color: #ffffff;
+  }
+  .btnCollapseWhite,
+.btnCollapseWhite:hover {
+  color: #000000;
+  font-weight: 600;
+  padding-left: 0;
+  text-decoration: none;
+}
+
+.btnCollapseWhite:focus {
+  box-shadow: none;
+  text-decoration: none;
+}
+.BtnCardHeadWhite {
+    background-color: #ffffff;
+  }
+  
+  .BtnCardHead {
+    border: none !important;
+  }
+  

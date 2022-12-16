@@ -1,0 +1,12 @@
+.LandingPageBgAbout {
+    background: url(../../../assets/images/Aboutusbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+.CoverHeadAbout {
+    color: #ffffff;
+    margin: 0 auto;
+    margin-top: 200px;
+    text-align: center;
+}

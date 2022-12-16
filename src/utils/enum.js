@@ -1,0 +1,22 @@
+export const OTP_SEND_SUCCESS = 'OTP send Successfully';
+export const OTP_SEND_FAILURE = 'We can not find any account of this email, please signup';
+export const LOGIN_FAILURE = 'Enter Valid Number';
+export const OTP_VALIDATE_SUCCESS = 'OTP validation successfully';
+export const OTP_VALIDATION_FAILURE = 'Invalid OTP!';
+export const LOGOUT_SUCCESSFULL = 'Log Out Successfully';
+export const SIGNUP_NUMBER_ERROR = 'The mobile number has already been taken.';
+export const OTP_SEND_MOBILE_SUCCESS = 'OTP send Successfully to mobile number';
+export const CUSTOMER_SUPPORT_DATA_SUCCESS = 'Data Submited Success Thankyou!';
+export const CUSTOMER_SUPPORT_DATA_FAIL = 'Data Not Submited Please Try Again';
+export const CUSTOMER_SUPPORT_DATA_LOADING = 'Please Wait Your Data On The Way';
+export const DELETE_USER_ADDRESS_SUCCESS = 'Your address is deleted successfully.!';
+export const DELETE_USER_ADDRESS_FAILURE = 'Address Failed to Delete';
+export const ADD_USSER_ADDRESS_SUCCESS = 'Address Added Successfully';
+export const ADD_USER_ADDRESS_ERROR = 'Address Not Added';
+export const PROFILE_PHOTO_SUCCESS = 'Your Details Updated Successfully';
+export const PROFILE_PHOTO_ERROR = 'Failed to Update Your Details Try Again!';
+
+export const SUCCESS_TOASTIFY_TYPE = 'success';
+export const ERROR_TOASTIFY_TYPE = 'error';
+export const WARNING_TOASTIFY_TYPE = 'warn';
+export const INFO_TOASTIFY_TYPE = 'info';

@@ -1,0 +1,27 @@
+.PaddingHome {
+    padding: 50px 0px 40px 0px;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }
+  .AboutTopMarg {
+    margin-top: 50px;
+    color: #e70f0f;
+    margin-bottom: 18px;
+  }
+  .ContentText {
+    color: #999999;
+  }
+  .BtnViewMore {
+    border-radius: 50px;
+    padding: 8px 17px;
+  }
+  
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+.ContentImgRest {
+    width: 280px;
+    float: right;
+  }

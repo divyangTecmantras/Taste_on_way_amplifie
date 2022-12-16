@@ -1,0 +1,21 @@
+.RestProfileImg {
+    width: 200px;
+    position: relative;
+    top: 505px;
+  }
+  .ModalHomeFooterProfile {
+    border-top: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
+  .AddImg {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 586px;
+    right: 56px;
+  }
+  .btn.focus,
+.btn:focus {
+  box-shadow: none;
+}

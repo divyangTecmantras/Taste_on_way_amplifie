@@ -1,0 +1,16 @@
+.NavbackWhite {
+    background-color: #ffffff;
+  }
+  
+.ImgWidthFix {
+  width: 65px;
+}
+.NavLinkColor {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.NavLinkColor:focus,
+.NavLinkColor:hover,
+.NavLinkColor .active {
+  color: rgba(0, 0, 0, 1) !important ;
+}

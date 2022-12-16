@@ -1,0 +1,42 @@
+.DeliciousDosaRow {
+    margin-top: 115px;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .BlockRest {
+    padding: 20px;
+    border-radius: 27px;
+    border: 1px solid #cccccc;
+    margin-top: 45px;
+  }  
+  .BlockRest {
+    color: #595959;
+  }
+  .BoxRestaurent {
+    background: #ffd9d961;
+    border-radius: 15px;
+    padding: 10px 15px;
+    text-align: center;
+  }
+  .BoxPaddingRest {
+    border-radius: 15px;
+    padding: 10px 15px;
+    text-align: center;
+  }
+  .AddressBackGrey {
+    padding: 30px 37px;
+    background: #ebebeb;
+    border-radius: 19px;
+    color: #595959;
+  }
+  .FormControlAddress {
+    border: none;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }

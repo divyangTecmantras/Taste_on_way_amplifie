@@ -1,0 +1,26 @@
+.NavbackWhite {
+    background-color: #ffffff;
+  }
+  .ImgWidthFix {
+    width: 65px;
+  }
+  .Prtext {
+    font-weight: 600;
+  }
+  .btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+.BtnDropDown::after {
+    margin-left: 0em !important;
+  }
+  .logout-btn{
+    color: red;
+  }
+  .logout-btn:hover{
+    color: red;
+  }
+  .btn-profile{
+    border: none;
+    background-color: transparent;
+  }

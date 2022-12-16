@@ -1,0 +1,113 @@
+.TopMargin {
+    margin-top: 65px;
+  }
+  .DivClassControlsRestDetails {
+    display: flex;
+    position: relative;
+    left: 23px;
+    float: right;
+    bottom: 52px;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }
+  .NavFontSizeTab {
+    font-size: 18px;
+  }
+  
+  .NavFontSizeTab .nav-link.active {
+    background-color: #fff;
+    border-bottom: 4px solid #e70f0f !important;
+    font-weight: 600;
+    border-color: #ffffff #ffffff #fff;
+  }
+  
+  .NavFontSizeTab .nav-link {
+    font-size: 18px;
+    background: #ffffff;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .NavFontSizeTab .nav-link:hover {
+    border-color: #fff #fff #ccc;
+  }
+  .CardCheckout {
+    width: 14rem !important;
+    border: none;
+  }
+  .CardShadow {
+    text-align: center;
+    font-size: 21px;
+    padding: 6px 12px;
+    height: 44px;
+    width: 150px;
+    position: relative;
+    margin: 0 auto;
+    bottom: 22px;
+    background: #fff;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  }
+  .CardBoxShadow {
+    position: relative;
+    bottom: 12px;
+  }
+  .btnCard {
+    font-size: 25px;
+    vertical-align: baseline;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }
+  .TextSmall {
+    font-size: 14px;
+  }
+  .ImgWidthToping {
+    /* position: relative; */
+    left: 23px;
+    top: 22px;
+  }
+  .ToppingSelect {
+    padding: 24px 24px;
+  }
+  .SelectTopingsHead {
+    font-size: 20px;
+    color: #999999;
+    font-weight: 600;
+  }
+  .CheckboxTopings {
+    font-size: 16px;
+    color: #999999;
+    margin: 10px 0px 0px 0;
+  }
+  .FloatRightTopings {
+    float: right;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }  
+  .ModalHomeFooterProfile {
+    border-top: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
+  .floatRightButton {
+    float: right;
+  }
+  .btnradius {
+    border-radius: 0px;
+  }
+  .BtnCheckOut {
+    width: 100%;
+    font-weight: 600;
+    border-radius: 0px;
+    margin-bottom: 25px;
+  }

@@ -1,0 +1,146 @@
+.PaymentBar {
+    border: 1px solid #ccc;
+    margin-left: 15px;
+    padding: 20px 15px;
+    width: 130%;
+  }
+  .cartItems {
+    height: 393px;
+    width: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  .cartItems::-webkit-scrollbar {
+    display: none;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .TextColor {
+    color: #999999;
+  }
+  .TextSmall {
+    font-size: 14px;
+  }
+  .CardShadowCheckout {
+    text-align: center;
+    font-size: 21px;
+    padding: 6px 12px;
+    height: 38px;
+    width: 126px;
+    position: relative;
+    /* margin: 0 auto; */
+    /* bottom: 32px;
+    left: 271px;*/
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+  .CardBoxShadowCheckout {
+    position: relative;
+    bottom: 16px;
+  }
+  .btnCard {
+    font-size: 25px;
+    vertical-align: baseline;
+  }
+  .TextRight {
+    text-align: right;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }
+  .ApplyCouponDiv {
+    border: 1px solid #ddd;
+    padding: 15px 13px;
+    margin: 25px 0;
+    color: #999999;
+  }
+  .ApplyCouponCode {
+    width: 22px;
+  }
+  .ImgWidthPromocode {
+    width: 55px;
+    position: relative;
+    top: 20px;
+    left: 22px;
+  }
+  .PromoCardTitle {
+    margin-bottom: 0px;
+  }
+  .ApplyCode {
+    float: right;
+    color: #e70f0f;
+  }
+  .ViewmoretextPromo {
+    color: #999999 !important;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .RowWithDivider {
+    width: 90%;
+    margin-top: 0;
+  }
+  .ListCoupon {
+    padding: 0px 42px 0px;
+    font-size: 19px;
+    color: #999999;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }
+  .ListCouponImg {
+    width: 21px;
+    margin-right: 12px;
+  } 
+  .Rupeeiconpay {
+    float: right;
+  }   
+  .ImgWidthToping {
+    /* position: relative; */
+    left: 23px;
+    top: 22px;
+  }
+  .ToppingSelect {
+    padding: 24px 24px;
+  }
+  .SelectTopingsHead {
+    font-size: 20px;
+    color: #999999;
+    font-weight: 600;
+  }
+  .CheckboxTopings {
+    font-size: 16px;
+    color: #999999;
+    margin: 10px 0px 0px 0;
+  }
+  .FloatRightTopings {
+    float: right;
+  }
+  .ModalHomeFooterProfile {
+    border-top: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
+  .floatRightButton {
+    float: right;
+  }
+  .btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+.btnradius {
+    border-radius: 0px;
+  }
+  .DeliciousDosaFontNew {
+    font-size: 16px;
+    font-weight: 600;
+    color: #999999;
+  }
+  

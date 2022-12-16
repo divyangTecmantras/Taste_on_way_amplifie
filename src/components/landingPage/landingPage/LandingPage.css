@@ -1,0 +1,7 @@
+.LandingPageBgRestaurents {
+    /* background: url(../images/restaurents-background.png); */
+    background: url(../../../assets/images/restaurents-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  }

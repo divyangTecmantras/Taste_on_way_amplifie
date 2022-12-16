@@ -1,0 +1,21 @@
+.HomeBackRed {
+    background-color: #e70f0f0a;
+}
+.PaddingHomeAbout {
+    padding: 65px 0px 75px 0px;
+}
+.LocalEconomies {
+    color: #e70f0f;
+}
+.btnExplore {
+    background-color: #ffffff;
+    color: #e70f0f;
+    padding: 9px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.btnExplore:hover {
+    color: #e70f0f;
+}

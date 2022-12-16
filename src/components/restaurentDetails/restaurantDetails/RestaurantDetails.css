@@ -1,0 +1,18 @@
+.LandingPageBgRestaurentsDetail {
+    background: url(../../../assets/images/delicious-dosa-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  }
+  .RestProfileImg {
+    width: 200px;
+    position: relative;
+    top: 505px;
+  }
+  .MainContainerRest .row {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }

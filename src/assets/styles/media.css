@@ -1,0 +1,357 @@
+@media (max-width: 1440px) {
+  .CoverHead {
+    text-align: center;
+    color: #ffffff;
+    top: 67px !important;
+    font-size: 2rem !important;
+  }
+
+  .LandingPageBg {
+    height: 500px;
+  }
+}
+
+@media (max-width: 575px) {
+  .InputEmailOTP {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .LineHeightDivider {
+    left: 14px;
+    top: 9px;
+  }
+
+  .btnBackgroundWhite {
+    width: 147px;
+  }
+
+  .btnBackgroundWhite::after {
+    margin-left: 0.5em;
+  }
+
+  .DivClassControls {
+    display: flex;
+    position: relative;
+    left: 11px;
+    float: right;
+    bottom: 45px;
+  }
+
+  .DivClassControlsRestDetails {
+    display: flex;
+    position: relative;
+    left: 23px;
+    float: right;
+    bottom: 4px;
+  }
+
+  .RespMarTopCard {
+    margin-top: 25px;
+  }
+
+  .ApplycodeResp {
+    margin-top: 4px;
+  }
+
+  .RespCheckoutCard {
+    height: 375px;
+    margin-bottom: 15px;
+  }
+
+  .CheckoutCancelPolicyBanner {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .LandingPageBg {
+    height: 500px;
+  }
+
+  .LandingPageBgRestaurents {
+    height: 1086px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .BannerImgRestaurent {
+    width: 70%;
+    position: relative;
+    top: 10%;
+    left: 0%;
+  }
+
+  .DivClassControlsRest {
+    display: flex;
+    position: relative;
+    left: 14px;
+    float: right;
+    bottom: 97px;
+  }
+
+  .ContactUSBox {
+    width: auto !important;
+  }
+
+  .ImgOverlayProf {
+    position: absolute;
+    top: 21px;
+    right: 0;
+    bottom: 0;
+    left: 113px;
+    padding: 1.25rem;
+    border-radius: calc(0.25rem - 1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .CoverHead {
+    padding: 43px 15px;
+  }
+
+  .LandingPageBg {
+    height: 500px;
+  }
+
+  .BoxCard {
+    width: auto !important;
+  }
+
+  .PopupBtnWidth {
+    margin-left: 0px !important;
+  }
+
+  .CoverHeadRest {
+    color: #ffffff;
+    margin-top: 100px;
+  }
+
+  .LandingPageBgRestaurents {
+    height: auto !important;
+  }
+
+  .BoxSpecials {
+    width: auto !important;
+  }
+
+  .BoxCard {
+    margin-top: 15px;
+  }
+
+  .BoxSpecials {
+    margin-top: 15px;
+  }
+
+  .vl {
+    display: none;
+  }
+
+  .RestProfileImg {
+    width: 140px;
+    position: relative;
+    top: 128px;
+    margin: 0 auto;
+  }
+
+  .LandingPageBgRestaurentsDetail {
+    height: 300px !important;
+  }
+
+  .LandingPageBgOrdersDetail {
+    height: 300px;
+  }
+
+  .ImgOverlayProf {
+    position: absolute;
+    top: 6px !important;
+    right: 0;
+    bottom: 0;
+    left: 60px !important;
+    padding: 1.25rem;
+    border-radius: calc(0.25rem - 1px);
+  }
+
+  .ImgProfileBg .card-title {
+    font-size: 21px;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+
+  .respmargtopprof {
+    margin-top: 35px;
+  }
+
+  .BadgeMainDiv {
+    text-align: left;
+  }
+
+  .RestProfImgadd {
+    width: 200px;
+    position: relative;
+    margin: 0 auto;
+    top: 505px;
+  }
+
+  .ProfilePage {
+    height: 500px;
+  }
+
+  .ProfileImgResp {
+    text-align: center;
+    bottom: 200px !important;
+    position: relative;
+  }
+
+  .BtnProfile {
+    text-align: center !important;
+    font-size: 18px;
+    font-weight: 500;
+    float: none !important;
+  }
+
+  .TextCenterEditProfresp {
+    text-align: center !important;
+  }
+
+  .RespCheckoutCard {
+    margin-bottom: 40px;
+  }
+
+  .RespCheckoutCard {
+    height: auto;
+  }
+
+  /*
+
+}
+.MainContainerRest .row{
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}*/
+}
+
+@media (max-width: 767px) {
+  .TopBoxmargin {
+    margin-top: 25px;
+  }
+
+  .CoverHeadAbout {
+    color: #ffffff;
+    margin: 0 auto;
+    margin-top: 90px;
+    text-align: center;
+  }
+
+  .LandingPageBgAbout {
+    height: 500px;
+  }
+
+  .PaddingHome {
+    padding: 30px 0px 40px 0px;
+  }
+
+  .AboutTopMarg {
+    margin-top: 20px;
+  }
+
+  .ContentImg {
+    margin-top: 35px;
+    float: none;
+  }
+
+  .CoverHeadRest {
+    margin-top: 32px;
+  }
+
+  .BannerImgRestaurent {
+    width: 95%;
+    position: relative;
+    top: 10%;
+    left: 0;
+  }
+
+  .LandingPageBgRestaurents {
+    height: 765px;
+  }
+
+  .InputGroupRest {
+    flex-wrap: nowrap !important;
+  }
+
+  .BoxCard {
+    margin-top: 15px;
+  }
+
+  .DivClassControlsRest {
+    display: flex;
+    position: relative;
+    left: 5px;
+    float: right;
+    bottom: 138px;
+  }
+
+  .TopMargin {
+    margin-top: 65px;
+  }
+
+  .BoxSpecials {
+    margin-top: 15px;
+  }
+
+  .TopMarginResp {
+    margin-top: 25px !important;
+  }
+
+  .BoxSpecials {
+    width: auto !important;
+  }
+
+  .CoverHeadRest {
+    margin-top: 85px !important;
+  }
+
+  .BannerImgRestaurent {
+    width: 95%;
+    position: relative;
+    top: 10%;
+    left: 0%;
+  }
+
+  .DivBoxAddress {
+    margin: 30px 0px 0px;
+  }
+
+  .PaymentBar {
+    border: 1px solid #ccc;
+    margin-left: auto;
+    padding: 20px 15px;
+    margin-right: auto;
+  }
+
+  /* .ProceedtocheckoutCont .row {
+      margin-left: auto !important;
+      margin-right: auto !important;
+  }
+*/
+  .ContactUsPage {
+    height: 500px;
+  }
+
+  .ContactUSBox {
+    width: auto;
+  }
+
+  .TitleResp {
+    margin-top: 15px;
+  }
+
+  .RespCancelPolicyImg {
+    display: none;
+  }
+
+  .RespCheckoutCard {
+    height: 350px;
+  }
+}

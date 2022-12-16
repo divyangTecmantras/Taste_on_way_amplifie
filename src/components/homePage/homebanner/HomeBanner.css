@@ -1,0 +1,18 @@
+.LandingPageBg {
+    background: url('../../../assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 910px;
+  }
+  .CoverHead {
+    text-align: center;
+    margin-top: 350px;
+    color: #ffffff;
+    background: #00000082;
+    position: relative;
+    top: 265px;
+    padding: 65px;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 3rem !important;
+  }

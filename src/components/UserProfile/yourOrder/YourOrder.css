@@ -1,0 +1,105 @@
+.ProfImgContact {
+    border: none !important;
+    width: 45px;
+  }
+  .ImgSearchIconProf {
+    left: 3px;
+    position: relative !important;
+    right: 7px;
+    width: 18px;
+  }
+  .InputTypeSearchProf {
+    border-radius: 0.25rem;
+    height: calc(1.5em + 0.75rem + 10px);
+    border-right: 1px solid #ddd;
+    border: none;
+    background: #e9ecef;
+    font-weight: 600;
+  }
+  .BoxCardProf {
+    border: 0;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+  }
+  .Boxcardborderbottom {
+    border-bottom: none !important;
+  }
+  .WidthProfImg {
+    width: 85px;
+    height: 85px;
+    margin-top: 8px;
+  }
+  .HeadProfBox {
+    margin-top: 5px;
+  }
+  .NormalTextProf {
+    font-size: 15px;
+    color: #999999;
+  }
+  .BadgeMainDiv {
+    float: inherit;
+    text-align: end;
+  }
+  .TrackOrder {
+    color: #999999;
+    background-color: #dee2e6;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 9px;
+    margin-top: 10px;
+  }
+  .ContentLeft {
+    text-align: left !important;
+  }
+  .TextContent {
+    font-size: 15px;
+  }
+  .TextEnd {
+    width: 100%;
+    text-align: end;
+  }
+  .RupeeBlackWidth {
+    width: 10px;
+  }
+  .MargintopDist {
+    margin-top: 28px;
+  }
+  .cardheadwhite {
+    background: transparent;
+  }
+  .WidthProfImgRider {
+    width: 75px;
+  }
+  .HeadProfBoxRider {
+    margin-top: 5px;
+    margin-left: 12px;
+    font-size: 16px;
+  }
+  .NormalTextProfRide {
+    font-size: 15px;
+    color: #999999;
+    margin-left: 12px;
+  }
+  .WidthIconCall,
+.RatingImg {
+  width: 15px;
+}
+.RatingImg {
+    width: 85px;
+    position: relative;
+    bottom: 2px;
+  }
+  
+.TextColor {
+    color: #999999;
+  }
+  .ModalHomeFooterProfile {
+    border-top: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
+  .RupeeBlackWidth {
+    width: 10px;
+  }
+  .WidthProfImg{}
+  
+  

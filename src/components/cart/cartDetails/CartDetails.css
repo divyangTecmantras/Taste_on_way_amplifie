@@ -1,0 +1,10 @@
+.ProceedtocheckoutBg {
+    background: url(../../../assets/images/proceedtocheckout.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }
+  

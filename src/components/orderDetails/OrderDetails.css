@@ -1,0 +1,54 @@
+.timer {
+    font-family: 'Montserrat';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+.value {
+    font-size: 40px;
+  }
+  .LandingPageBgOrdersDetail {
+    background: url(../../assets/images/tastesonwayorderdetails.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  }
+  .TextColor {
+    color: #999999;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }
+  .DivDeliveryAddress {
+    border: 1px solid #ccc;
+    padding: 33px 33px;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .OrderFromText {
+    margin-top: 15px;
+    color: #000000;
+    font-weight: 600;
+  }
+  .PlacesText {
+    margin-top: 5px;
+    color: #999999;
+    font-weight: 600;
+  }
+  .TextColor {
+    color: #999999;
+  }
+  .TextRightBox {
+    text-align: right;
+  }
+  .TextFloatright {
+    float: right;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }

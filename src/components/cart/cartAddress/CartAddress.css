@@ -1,0 +1,65 @@
+.DivDeliveryAddress {
+  border: 1px solid #ccc;
+  padding: 33px 33px;
+}
+.DeliciousDosaFont {
+  font-size: 18px;
+  font-weight: 600;
+  color: #999999;
+}
+.TextColor {
+  color: #999999;
+}
+.DivBoxAddress {
+  margin: 30px 15px 0px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  height: 270px;
+}
+.HomeAddress {
+  font-size: 17px;
+  color: #999999;
+  position: relative;
+  left: 10px;
+  top: 3px;
+}
+.TextAdd {
+  margin-top: 26px;
+  color: #999999;
+}
+.BtnDeliverHere {
+  width: 165px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0px;
+}
+.HomeAddress {
+  font-size: 17px;
+  color: #999999;
+  position: relative;
+  left: 10px;
+  top: 3px;
+}
+.btn.focus,
+.btn:focus {
+  box-shadow: none;
+}
+.BtnAddnewAdd {
+  background: #ffffff;
+  color: #dc3545;
+  width: 165px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0px;
+  margin-top: 36px;
+}
+
+.BtnAddnewAdd:hover,
+.BtnAddnewAdd:focus {
+  background: #ffffff;
+  color: #dc3545;
+  width: 165px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0px;
+}

@@ -1,0 +1,32 @@
+.TopMargin {
+    margin-top: 65px;
+  }
+  .DivClassControlsRestDetails {
+    display: flex;
+    position: relative;
+    left: 23px;
+    float: right;
+    bottom: 52px;
+  }
+.ImgCarouselWidth {
+  width: 45px;
+} 
+.CardImgoverlayBottom {
+    top: auto !important;
+  }
+  .AdddBtnText {
+    background: #ffffff;
+    color: #000000;
+    padding: 6px 12px;
+    border-radius: 10px;
+    float: right;
+  } 
+  .DeliciousDosaFontBlack {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+  }
+  .AdddBtnTextimg{
+    background: white;
+    border: none;
+  }

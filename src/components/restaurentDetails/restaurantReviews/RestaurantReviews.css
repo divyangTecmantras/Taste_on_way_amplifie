@@ -1,0 +1,38 @@
+.TopMargin {
+    margin-top: 65px;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .StarImgRest {
+    width: 15px;
+    position: relative;
+    bottom: 2px;
+  }
+  .DivClassControlsRestDetails {
+    display: flex;
+    position: relative;
+    left: 23px;
+    float: right;
+    bottom: 52px;
+  }
+  .ImgCarouselWidth {
+  width: 45px;
+}
+.carousel-control-next,
+.carousel-control-prev {
+  position: relative;
+  width: 65px;
+}
+.star {
+   display: flex;
+  }
+  .undefined.react-stars{
+     overflow: hidden;
+    position: relative;
+    margin-left: 10px;
+    bottom: 1px;
+  }
+  

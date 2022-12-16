@@ -1,0 +1,24 @@
+.TopMarginProfile {
+    margin-top: 30px;
+  }
+  .ProfileVertTab {
+    border: 1px solid #ddd;
+    height: 255px;
+  }
+  .ProfTabHead {
+    padding: 1rem 1rem;
+    letter-spacing: 2px;
+    color: #999999;
+    font-size: 1.25rem;
+  }
+  .ProfNavLink {
+    border-radius: 0px !important;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0.8rem 1rem;
+  }
+  .btn.focus,
+.btn:focus {
+  box-shadow: none;
+}

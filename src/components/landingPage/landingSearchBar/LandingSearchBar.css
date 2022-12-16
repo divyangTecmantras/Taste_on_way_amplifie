@@ -1,0 +1,35 @@
+.CoverHeadRest {
+    color: #ffffff;
+    margin-top: 200px;
+  }
+  
+  .CoverHeadRest h1 {
+    line-height: 1.5;
+  }
+  .btnBackgroundWhite {
+    background-color: #ffffff;
+    color: #000000;
+    /* width: 205px; */
+    height: 100%;
+    border: hidden;
+  }
+  .placeInput {
+    border-style: hidden;
+    outline-style: none;
+    height: 42px;
+  }
+  .suggestionInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .BtnInputSearch {
+    height: calc(1.5em + 0.75rem + 6px);
+    width: 300px !important;
+  }
+  .BannerImgRestaurent {
+    width: 95%;
+    position: relative;
+    top: 10%;
+    left: 28%;
+  }

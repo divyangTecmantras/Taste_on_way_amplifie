@@ -1,0 +1,29 @@
+.RestDetailIcon {
+    width: 140px;
+  }
+  .TopMargin {
+    margin-top: 65px;
+  }
+  .DetailTextIcon {
+    margin-top: 15px;
+    color: #e70f0f;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .DeliciousDosaFont {
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+  }
+  .AddressBackRed {
+    padding: 30px 37px;
+    background: #ffd9d961;
+    border-radius: 19px;
+    width: 100%;
+  }
+  .RupeeImg {
+    width: 12px;
+    position: relative;
+    bottom: 1px;
+  }
+  
