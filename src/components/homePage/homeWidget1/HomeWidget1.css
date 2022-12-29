@@ -1,19 +1,40 @@
 .TopMargin {
-    margin-top: 65px;
-  }
+  margin-top: 65px;
+}
 .BoxCard:hover {
-    border: 1px solid #e70f0f;
-  }
+  border: 1px solid #e70f0f;
+}
 .BoxImg {
-    width: 175px;
-    margin: 0 auto;
-    padding-top: 45px;
-  }
+  width: 175px;
+  margin: 0 auto;
+  padding-top: 45px;
+}
 
 .BoxTextCenter {
-    text-align: center;
+  text-align: center;
+}
+.BoxLink {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.card.BoxCardWidth {
+  width: 20rem !important;
+  height: 435px;
+}
+
+@media (max-width: 768px) {
+  .card.BoxCardWidth {
+    width: auto !important;
   }
-  .BoxLink {
-    color: #dc3545;
-    font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .card.BoxCardWidth {
+    width: auto !important;
   }
+
+  .BannerImgRestaurent {
+    visibility: hidden;
+  }
+}

@@ -7,8 +7,9 @@ import { FormattedMessage } from 'react-intl';
 import { injectIntl } from 'react-intl';
 import locationImage from '../../../assets/images/location.png';
 import fruitSaladImage from '../../../assets/images/healthy-fruit-salad.png';
-// import '../../../assets/styles/style.css';
+import '../../../assets/styles/style.css';
 import './LandingSearchBar.css';
+// import '../../assets/styles/media.css';
 
 const LandingSearchBar = ({ intl }) => {
     const typeAddress = intl.formatMessage({
@@ -117,13 +118,13 @@ const LandingSearchBar = ({ intl }) => {
                         <div className="input-group InputGroupRest mb-3 mt-4">
                             <div>
                                 <button
-                                    className="btnBackgroundWhite"
+                                    className="btnBackgroundWhite RespBtnBg"
                                     onClick={detactCurrentLocation}
                                 >
                                     <img src={locationImage} alt="" />
                                 </button>
                             </div>
-                            <div>
+                            <div className="RespplaceInput">
                                 <PlacesAutocomplete
                                     className="placeInput"
                                     value={address}
@@ -144,15 +145,16 @@ const LandingSearchBar = ({ intl }) => {
                                                     placeholder: typeAddress,
                                                 })}
                                             />
-                                            <div style={{ position: 'absolute' }}>
+                                            <div className="divy" style={{ position: 'absolute' }}>
                                                 {loading ? <div>...loading</div> : null}
                                                 {suggestions.map((suggestion) => {
                                                     const style = {
                                                         backgroundColor: suggestion.active
-                                                            ? '#41b6e6'
+                                                            ? '#dc3545'
                                                             : '#fff',
                                                         borderStyle: 'hidden',
-                                                        color: 'black',
+                                                        color: suggestion.active ? '#fff' : 'black',
+                                                        padding: '5px',
                                                     };
                                                     return (
                                                         <div key={suggestion.index}>
@@ -165,6 +167,7 @@ const LandingSearchBar = ({ intl }) => {
                                                                     },
                                                                 )}
                                                             >
+                                                                {' '}
                                                                 {suggestion.description}
                                                             </div>
                                                         </div>
@@ -184,7 +187,11 @@ const LandingSearchBar = ({ intl }) => {
                                 onChange={(e) => setSearchValue(e.target.value)}
                             />
                             <div className="input-group-prepend">
-                                <button className="btn btn-danger" onClick={searchClick}>
+                                <button
+                                    className="btn btn-danger BtnSearch "
+                                    style={{ borderRadius: '50%' }}
+                                    onClick={searchClick}
+                                >
                                     <FormattedMessage
                                         id="Landing_page.Search"
                                         defaultMessage="Search"

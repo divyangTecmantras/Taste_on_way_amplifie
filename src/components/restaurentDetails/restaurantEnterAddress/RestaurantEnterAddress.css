@@ -1,5 +1,5 @@
 .DeliciousDosaRow {
-    margin-top: 115px;
+    margin-top: 80px;
   }
   .DeliciousDosaFont {
     font-size: 18px;
@@ -39,4 +39,5 @@
     font-size: 18px;
     font-weight: 600;
     color: #999999;
+    word-break: break-all;
   }

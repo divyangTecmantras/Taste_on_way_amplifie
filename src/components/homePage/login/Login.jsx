@@ -25,6 +25,7 @@ import { injectIntl } from 'react-intl';
 import google from '../../../assets/images/google.png';
 import facebook from '../../../assets/images/facebook.png';
 import apple from '../../../assets/images/apple.png';
+import './Login.css';
 
 const Login = ({ intl }) => {
     const email = intl.formatMessage({
@@ -284,7 +285,7 @@ const Login = ({ intl }) => {
                                                         </Field>
                                                         <Field
                                                             type="number"
-                                                            className="form-control"
+                                                            className="form-control NewFormPhone"
                                                             id="phone"
                                                             name="phone"
                                                             aria-describedby="emailHelp"
@@ -292,12 +293,16 @@ const Login = ({ intl }) => {
                                                             maxlength="10"
                                                         />
                                                     </div>
-                                                    {ErrorMSG('countryCode')}
-                                                    {ErrorMSG('phone')}
+                                                    <div className="Eroorcode Width25">
+                                                        {ErrorMSG('countryCode')}
+                                                    </div>
+                                                    <div className="Eroorcode">
+                                                        {ErrorMSG('phone')}
+                                                    </div>
                                                 </>
                                             )}
                                         </div>
-                                        <div className="modal-footer ModalHomeFooter">
+                                        <div className="mt-3 ModalHomeFooter">
                                             <button
                                                 type="submit"
                                                 className="btn btn-danger WidthLoginBtn"

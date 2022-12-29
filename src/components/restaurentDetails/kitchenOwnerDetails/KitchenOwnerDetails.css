@@ -2,18 +2,48 @@
   background: url(../../../assets/images/delicious-dosa-bg.png);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 700px;
+  height: 578px;
 }
 .RestProfileImg {
-    width: 200px;
-    position: relative;
-    top: 505px;
-  }
-  .MainContainerRest .row {
+  width: 200px;
+  position: relative;
+  top: 505px;
+}
+/* .MainContainerRest .row {
     margin-left: 5px !important;
     margin-right: 5px !important;
-  }
-  
+  } */
+
 .TopMargin {
-    margin-top: 65px;
+  margin-top: 65px;
+}
+
+/*Newcss-20/12/2022*/
+
+.RestProfileImg {
+  height: 135px !important;
+  width: 135px !important;
+  border-radius: 50%;
+}
+
+.ProfilePage {
+  height: 580px !important;
+}
+
+.NameProfile {
+  margin-top: 72px;
+}
+
+@media (max-width: 768px) {
+  .RestProfileImg {
+    top: 230px !important;
   }
+
+  .RespProfileAddImg {
+    top: 505px !important;
+  }
+
+  .ProfilePage {
+    height: 377px !important;
+  }
+}

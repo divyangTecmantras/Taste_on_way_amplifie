@@ -123,12 +123,12 @@ const Address = ({ intl }) => {
     return (
         <>
             <div
-                className="tab-pane fade"
+                className="tab-pane fade ScrollbarHidden"
                 id="v-pills-profile"
                 role="tabpanel"
                 aria-labelledby="v-pills-profile-tab"
             >
-                <h2 className="respmargtopprof">My Address</h2>
+                <h2 className="respmargtopprof RespMargTop">My Address</h2>
 
                 <div className="row">
                     {userAddress?.map((data) => (
@@ -181,13 +181,20 @@ const Address = ({ intl }) => {
                                         onHide={handleDeleteClose}
                                         backdrop="static"
                                     >
-                                        <Modal.Header closeButton>
+                                        <Modal.Header>
                                             <Modal.Title>
                                                 <FormattedMessage
                                                     id="UserProfile_page.Delete Address"
                                                     defaultMessage="Delete Address"
                                                 />
                                             </Modal.Title>
+                                            <button
+                                                type="button"
+                                                className="close"
+                                                onClick={handleDeleteClose}
+                                            >
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </Modal.Header>
                                         <Modal.Body>
                                             <FormattedMessage
@@ -198,7 +205,7 @@ const Address = ({ intl }) => {
                                             />
                                         </Modal.Body>
                                         <Modal.Footer>
-                                            <Button
+                                            <button
                                                 className="btn mr-2 btn-outline-danger btnradius"
                                                 onClick={handleDeleteClose}
                                             >
@@ -206,8 +213,8 @@ const Address = ({ intl }) => {
                                                     id="UserProfile_page.NO"
                                                     defaultMessage="NO"
                                                 />
-                                            </Button>
-                                            <Button
+                                            </button>
+                                            <button
                                                 onClick={() => {
                                                     deleteAddress(data.id);
                                                     handleDeleteClose();
@@ -218,243 +225,252 @@ const Address = ({ intl }) => {
                                                     id="UserProfile_page.YES"
                                                     defaultMessage="YES"
                                                 />
-                                            </Button>
+                                            </button>
                                         </Modal.Footer>
                                     </Modal>
                                 </div>
                             </div>
                         </div>
                     ))}
-                </div>
 
-                <div className="col-lg-6">
-                    <div className="card mt-4">
-                        <div className="card-body ProfileCardBody text-center">
-                            <div className="CursorPoint">
-                                <Button
-                                    style={{ background: 'white', border: 'none', color: 'black' }}
-                                    onClick={() => handleShow()}
-                                >
-                                    <img
-                                        src={addAddress}
-                                        className="IconAddress mt-4"
-                                        alt="addAddress"
-                                    />
-                                    <h5 className="card-title mt-2">
-                                        <FormattedMessage
-                                            id="UserProfile_page.Add New Address"
-                                            defaultMessage="Add New Address"
+                    <div className="col-lg-6">
+                        <div className="card mt-4">
+                            <div className="card-body ProfileCardBody text-center">
+                                <div className="CursorPoint">
+                                    <Button
+                                        style={{
+                                            background: 'white',
+                                            border: 'none',
+                                            color: 'black',
+                                        }}
+                                        onClick={() => handleShow()}
+                                    >
+                                        <img
+                                            src={addAddress}
+                                            className="IconAddress mt-4"
+                                            alt="addAddress"
                                         />
-                                    </h5>
-                                </Button>
-                            </div>
-
-                            <Modal show={show} onHide={handleClose} animation={false}>
-                                <div className="modal-content ContentLeft">
-                                    <div className="modal-header">
-                                        <h4 className="modal-title" id="exampleModalLabel">
+                                        <h5 className="card-title mt-2">
                                             <FormattedMessage
                                                 id="UserProfile_page.Add New Address"
                                                 defaultMessage="Add New Address"
                                             />
-                                        </h4>
-                                        <button
-                                            type="button"
-                                            className="close"
-                                            data-dismiss="modal"
-                                            aria-label="Close"
-                                        >
-                                            <span onClick={() => setShow(!show)} aria-hidden="true">
-                                                ×
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body">
-                                        <div className="row AddAddressModal">
-                                            <div className="col-lg-12">
-                                                <form onSubmit={formik.handleSubmit}>
-                                                    <div className="form-group">
-                                                        <label htmlFor="inputAddress">
-                                                            <FormattedMessage
-                                                                id="UserProfile_page.Address"
-                                                                defaultMessage="Address"
-                                                            />
-                                                        </label>
-                                                        <input
-                                                            name="Address"
-                                                            type="text"
-                                                            className="form-control AddAddressModal"
-                                                            id="inputAddress"
-                                                            placeholder={address}
-                                                            onChange={formik.handleChange}
-                                                            value={formik.values.Address}
-                                                        />
-                                                        {formik.errors.Address && (
-                                                            <p style={{ color: 'red' }}>
-                                                                {formik.errors.Address}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <label htmlFor="inputAddress2">
-                                                            <FormattedMessage
-                                                                id="UserProfile_page.Area"
-                                                                defaultMessage="Area"
-                                                            />
-                                                        </label>
-                                                        <input
-                                                            name="Area"
-                                                            type="text"
-                                                            className="form-control AddAddressModal"
-                                                            id="inputAddress2"
-                                                            placeholder={area}
-                                                            onChange={formik.handleChange}
-                                                            value={formik.values.Area}
-                                                        />
-                                                        {formik.errors.Area && (
-                                                            <p style={{ color: 'red' }}>
-                                                                {formik.errors.Area}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <label htmlFor="inputAddress2">
-                                                            <FormattedMessage
-                                                                id="UserProfile_page.Landmark"
-                                                                defaultMessage="Landmark"
-                                                            />
-                                                        </label>
-                                                        <input
-                                                            name="Landmark"
-                                                            type="text"
-                                                            className="form-control AddAddressModal"
-                                                            id="inputAddress2"
-                                                            placeholder={city}
-                                                            onChange={formik.handleChange}
-                                                            value={formik.values.Landmark}
-                                                        />
-                                                        {formik.errors.Landmark && (
-                                                            <p style={{ color: 'red' }}>
-                                                                {formik.errors.Landmark}
-                                                            </p>
-                                                        )}
-                                                    </div>
-                                                    <div className="form-row">
-                                                        <div className="form-group col-md-6">
-                                                            <label htmlFor="inputCity">
+                                        </h5>
+                                    </Button>
+                                </div>
+
+                                <Modal show={show} onHide={handleClose} animation={false}>
+                                    <div className="modal-content ContentLeft">
+                                        <div className="modal-header">
+                                            <h4 className="modal-title" id="exampleModalLabel">
+                                                <FormattedMessage
+                                                    id="UserProfile_page.Add New Address"
+                                                    defaultMessage="Add New Address"
+                                                />
+                                            </h4>
+                                            <button
+                                                type="button"
+                                                className="close"
+                                                data-dismiss="modal"
+                                                aria-label="Close"
+                                            >
+                                                <span
+                                                    onClick={() => setShow(!show)}
+                                                    aria-hidden="true"
+                                                >
+                                                    ×
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div className="modal-body">
+                                            <div className="row AddAddressModal">
+                                                <div className="col-lg-12">
+                                                    <form onSubmit={formik.handleSubmit}>
+                                                        <div className="form-group">
+                                                            <label htmlFor="inputAddress">
                                                                 <FormattedMessage
-                                                                    id="UserProfile_page.City"
-                                                                    defaultMessage="City"
+                                                                    id="UserProfile_page.Address"
+                                                                    defaultMessage="Address"
                                                                 />
                                                             </label>
                                                             <input
-                                                                name="City"
+                                                                name="Address"
                                                                 type="text"
                                                                 className="form-control AddAddressModal"
-                                                                id="inputCity"
+                                                                id="inputAddress"
+                                                                placeholder={address}
+                                                                onChange={formik.handleChange}
+                                                                value={formik.values.Address}
+                                                            />
+                                                            {formik.errors.Address && (
+                                                                <p style={{ color: 'red' }}>
+                                                                    {formik.errors.Address}
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="inputAddress2">
+                                                                <FormattedMessage
+                                                                    id="UserProfile_page.Area"
+                                                                    defaultMessage="Area"
+                                                                />
+                                                            </label>
+                                                            <input
+                                                                name="Area"
+                                                                type="text"
+                                                                className="form-control AddAddressModal"
+                                                                id="inputAddress2"
+                                                                placeholder={area}
+                                                                onChange={formik.handleChange}
+                                                                value={formik.values.Area}
+                                                            />
+                                                            {formik.errors.Area && (
+                                                                <p style={{ color: 'red' }}>
+                                                                    {formik.errors.Area}
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="inputAddress2">
+                                                                <FormattedMessage
+                                                                    id="UserProfile_page.Landmark"
+                                                                    defaultMessage="Landmark"
+                                                                />
+                                                            </label>
+                                                            <input
+                                                                name="Landmark"
+                                                                type="text"
+                                                                className="form-control AddAddressModal"
+                                                                id="inputAddress2"
                                                                 placeholder={city}
                                                                 onChange={formik.handleChange}
-                                                                value={formik.values.City}
+                                                                value={formik.values.Landmark}
                                                             />
-                                                            {formik.errors.City && (
+                                                            {formik.errors.Landmark && (
                                                                 <p style={{ color: 'red' }}>
-                                                                    {formik.errors.City}
+                                                                    {formik.errors.Landmark}
                                                                 </p>
                                                             )}
                                                         </div>
+                                                        <div className="form-row">
+                                                            <div className="form-group col-md-6">
+                                                                <label htmlFor="inputCity">
+                                                                    <FormattedMessage
+                                                                        id="UserProfile_page.City"
+                                                                        defaultMessage="City"
+                                                                    />
+                                                                </label>
+                                                                <input
+                                                                    name="City"
+                                                                    type="text"
+                                                                    className="form-control AddAddressModal"
+                                                                    id="inputCity"
+                                                                    placeholder={city}
+                                                                    onChange={formik.handleChange}
+                                                                    value={formik.values.City}
+                                                                />
+                                                                {formik.errors.City && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.City}
+                                                                    </p>
+                                                                )}
+                                                            </div>
 
-                                                        <div className="form-group col-md-6">
-                                                            <label htmlFor="inputZip">
-                                                                <FormattedMessage
-                                                                    id="UserProfile_page.Zip"
-                                                                    defaultMessage="Zip"
+                                                            <div className="form-group col-md-6">
+                                                                <label htmlFor="inputZip">
+                                                                    <FormattedMessage
+                                                                        id="UserProfile_page.Zip"
+                                                                        defaultMessage="Zip"
+                                                                    />
+                                                                </label>
+                                                                <input
+                                                                    name="Zip"
+                                                                    type="text"
+                                                                    className="form-control AddAddressModal"
+                                                                    id="inputZip"
+                                                                    placeholder={zip}
+                                                                    onChange={formik.handleChange}
+                                                                    value={formik.values.Zip}
                                                                 />
-                                                            </label>
-                                                            <input
-                                                                name="Zip"
-                                                                type="text"
-                                                                className="form-control AddAddressModal"
-                                                                id="inputZip"
-                                                                placeholder={zip}
-                                                                onChange={formik.handleChange}
-                                                                value={formik.values.Zip}
-                                                            />
-                                                            {formik.errors.Zip && (
-                                                                <p style={{ color: 'red' }}>
-                                                                    {formik.errors.Zip}
-                                                                </p>
-                                                            )}
+                                                                {formik.errors.Zip && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.Zip}
+                                                                    </p>
+                                                                )}
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="form-row">
-                                                        <div className="form-group col-md-6">
-                                                            <label htmlFor="inputState">
-                                                                <FormattedMessage
-                                                                    id="UserProfile_page.Address Type"
-                                                                    defaultMessage="Address Type"
-                                                                />
-                                                            </label>
-                                                            <select
-                                                                name="AddressType"
-                                                                id="inputState"
-                                                                className="form-control"
-                                                                onChange={formik.handleChange}
-                                                                value={formik.values.AddressType}
-                                                            >
-                                                                <option
-                                                                    selected="{true}"
-                                                                    className="selectoption"
+                                                        <div className="form-row">
+                                                            <div className="form-group col-md-6">
+                                                                <label htmlFor="inputState">
+                                                                    <FormattedMessage
+                                                                        id="UserProfile_page.Address Type"
+                                                                        defaultMessage="Address Type"
+                                                                    />
+                                                                </label>
+                                                                <select
+                                                                    name="AddressType"
+                                                                    id="inputState"
+                                                                    className="form-control"
+                                                                    onChange={formik.handleChange}
+                                                                    value={
+                                                                        formik.values.AddressType
+                                                                    }
                                                                 >
-                                                                    <FormattedMessage
-                                                                        id="UserProfile_page.Select Address Type"
-                                                                        defaultMessage="Select Address Type"
-                                                                    />
-                                                                </option>
-                                                                <option value="1">
-                                                                    <FormattedMessage
-                                                                        id="UserProfile_page.Home"
-                                                                        defaultMessage="Home"
-                                                                    />
-                                                                </option>
-                                                                <option value="2">
-                                                                    <FormattedMessage
-                                                                        id="UserProfile_page.Work"
-                                                                        defaultMessage="Work"
-                                                                    />
-                                                                </option>
-                                                                <option value="3">
-                                                                    <FormattedMessage
-                                                                        id="UserProfile_page.Other"
-                                                                        defaultMessage="Other"
-                                                                    />
-                                                                </option>
-                                                            </select>
-                                                            {formik.errors.AddressType && (
-                                                                <p style={{ color: 'red' }}>
-                                                                    {formik.errors.AddressType}
-                                                                </p>
-                                                            )}
+                                                                    <option
+                                                                        selected="{true}"
+                                                                        className="selectoption"
+                                                                    >
+                                                                        <FormattedMessage
+                                                                            id="UserProfile_page.Select Address Type"
+                                                                            defaultMessage="Select Address Type"
+                                                                        />
+                                                                    </option>
+                                                                    <option value="1">
+                                                                        <FormattedMessage
+                                                                            id="UserProfile_page.Home"
+                                                                            defaultMessage="Home"
+                                                                        />
+                                                                    </option>
+                                                                    <option value="2">
+                                                                        <FormattedMessage
+                                                                            id="UserProfile_page.Work"
+                                                                            defaultMessage="Work"
+                                                                        />
+                                                                    </option>
+                                                                    <option value="3">
+                                                                        <FormattedMessage
+                                                                            id="UserProfile_page.Other"
+                                                                            defaultMessage="Other"
+                                                                        />
+                                                                    </option>
+                                                                </select>
+                                                                {formik.errors.AddressType && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.AddressType}
+                                                                    </p>
+                                                                )}
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <button
-                                                        type="submit"
-                                                        className="btn btn-danger AddAddressModal"
-                                                        data-dismiss="modal"
-                                                        aria-label="Close"
-                                                    >
-                                                        <FormattedMessage
-                                                            id="UserProfile_page.Add Address"
-                                                            defaultMessage="Add Address"
-                                                        />
-                                                    </button>
-                                                </form>
+                                                        <button
+                                                            type="submit"
+                                                            className="btn btn-danger AddAddressModal"
+                                                            data-dismiss="modal"
+                                                            aria-label="Close"
+                                                        >
+                                                            <FormattedMessage
+                                                                id="UserProfile_page.Add Address"
+                                                                defaultMessage="Add Address"
+                                                            />
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div className="modal-footer ModalHomeFooterProfile" />
                                     </div>
-                                    <div className="modal-footer ModalHomeFooterProfile" />
-                                </div>
-                            </Modal>
+                                </Modal>
+                            </div>
                         </div>
                     </div>
                 </div>

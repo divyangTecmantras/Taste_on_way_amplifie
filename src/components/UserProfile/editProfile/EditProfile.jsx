@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import editprofile from '../../../assets/images/edit_profile.png';
 import 'react-datepicker/dist/react-datepicker.css';
-import RefrralCode from '../RefrralCode/RefrralCode';
 
 const EditProfile = () => {
     const dispatch = useDispatch();
@@ -251,7 +250,6 @@ const EditProfile = () => {
                         </Modal>
                     </div>
                 </div>
-                <RefrralCode />
             </div>
         </>
     );

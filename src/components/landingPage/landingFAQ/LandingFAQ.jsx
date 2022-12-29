@@ -15,7 +15,7 @@ const LandingFAQ = () => {
                         </h3>
                     </div>
                 </div>
-                <div className="row PaddingRestBottom">
+                <div className="row PaddingRestBottom NewResppaddingBottom">
                     <div className="col-lg-12">
                         <div className="accordion" id="accordionExample">
                             <div className="card BtnCardHead">

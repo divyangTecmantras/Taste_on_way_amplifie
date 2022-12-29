@@ -686,7 +686,7 @@ const RestaurantMenuItem = () => {
                 </div>
             </div>
             {menuItems?.length > 0 ? (
-                <div className="row mt-4">
+                <div className=" mt-4">
                     <div className="col-lg-12">
                         <button
                             className="btn btn-danger BtnCheckOut"

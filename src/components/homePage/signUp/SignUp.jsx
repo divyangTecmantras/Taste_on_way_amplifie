@@ -20,6 +20,7 @@ import {
 } from '../../../utils/enum';
 import { FormattedMessage } from 'react-intl';
 import { injectIntl } from 'react-intl';
+import './SignUp.css';
 
 const SignUp = ({ intl }) => {
     const phone = intl.formatMessage({
@@ -276,19 +277,23 @@ const SignUp = ({ intl }) => {
                                                         </Field>
                                                         <Field
                                                             type="Number"
-                                                            className="form-control"
+                                                            className="form-control NewFormPhone"
                                                             id="phone"
                                                             name="phone"
                                                             aria-describedby="emailHelp"
                                                             placeholder={phone}
                                                         />
                                                     </div>
-                                                    {ErrorMSG('countryCode')}
-                                                    {ErrorMSG('phone')}
+                                                    <div className="Eroorcode Width25">
+                                                        {ErrorMSG('countryCode')}
+                                                    </div>
+                                                    <div className="Eroorcode">
+                                                        {ErrorMSG('phone')}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="modal-footer ModalHomeFooter">
+                                        <div className=" mt-3 ModalHomeFooter">
                                             <button
                                                 type="submit"
                                                 className="btn btn-danger WidthLoginBtn"

@@ -13,7 +13,7 @@ const containerStyle = {
 const center = { lat: 23.0146, lng: 72.5306 };
 export default function MapContainer({ source, destination, currentLocation, orderStatus }) {
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: `${process.env.REACT_APP_API_KEY_AUTO_SEARCH_PLACE}`,
+        googleMapsApiKey: 'AIzaSyDcjtGb2jSVKXsUjxVAcJx6hboHbUe6fqI',
         libraries: ['places'],
     });
 

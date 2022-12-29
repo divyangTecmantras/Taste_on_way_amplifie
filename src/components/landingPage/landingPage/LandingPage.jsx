@@ -14,7 +14,6 @@ import '../../../assets/styles/media.css';
 import '../../landingPage/landingPage/LandingPage.css';
 
 const LandingPage = () => {
-    console.log('hellllo', process.env.REACT_APP_API_KEY_AUTO_SEARCH_PLACE);
     const dispatch = useDispatch();
     const { kitchenOwnerList } = useSelector((state) => ({
         kitchenOwnerList: state?.kitchenOwnerList?.error?.response?.status,
@@ -48,7 +47,7 @@ const LandingPage = () => {
             </div>
             <div className="container TopMargin">
                 <LandingCarousel3 />
-                <div className="container TopMargin">
+                <div className=" TopMargin">
                     <LandingCarousel1 />
                 </div>
                 <LandingCarousel2 />

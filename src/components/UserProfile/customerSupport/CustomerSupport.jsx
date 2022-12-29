@@ -145,7 +145,7 @@ const CustomerSupport = () => {
                 role="tabpanel"
                 aria-labelledby="v-pills-messages-tab"
             >
-                <h2 className="respmargtopprof">
+                <h2 className="respmargtopprof RespMargTop">
                     <FormattedMessage
                         id="UserProfile_page.Customer Support"
                         defaultMessage="Customer Support"
@@ -155,20 +155,24 @@ const CustomerSupport = () => {
                     <div className="col-lg-12">
                         <div className="card ProfileWidthcard mt-4">
                             <div className="card-body ProfileCardBody text-center">
-                                <img
-                                    src={addPhoto}
-                                    multiple
-                                    className="IconAddress mt-4"
-                                    alt="addPhoto"
-                                />
-                                <h5 className="card-title mt-2">
-                                    <FormattedMessage
-                                        id="UserProfile_page.Upload Image"
-                                        defaultMessage="Upload Image"
+                                <div>
+                                    <img
+                                        src={addPhoto}
+                                        multiple
+                                        className="IconAddress mt-4"
+                                        alt="addPhoto"
                                     />
-                                </h5>
+                                    <input
+                                        type="file"
+                                        className="form-control-file"
+                                        id="exampleFormControlFile1"
+                                        onChange={handleImage}
+                                        multiple="multiple"
+                                    />
+                                </div>
                             </div>
                         </div>
+
                         <form className="mt-4">
                             <div className="form-group">
                                 <h5 htmlFor="exampleInputEmail1">
@@ -211,13 +215,6 @@ const CustomerSupport = () => {
                                         defaultMessage="Example file input"
                                     />
                                 </label>
-                                <input
-                                    type="file"
-                                    className="form-control-file"
-                                    id="exampleFormControlFile1"
-                                    onChange={handleImage}
-                                    multiple="multiple"
-                                />
                             </div>
                             <div className="mb-5">
                                 <button onClick={(e) => handleSubmit(e)} className="btn btn-danger">

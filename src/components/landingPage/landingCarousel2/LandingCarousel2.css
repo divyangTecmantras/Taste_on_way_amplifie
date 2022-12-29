@@ -3,11 +3,11 @@
 }
 
 .DivClassControlsRest {
-    display: flex;
-    position: relative;
-    right: 50px;
-    float: right;
-    bottom: 60px;
+  display: flex;
+  position: relative;
+  right: 50px;
+  float: right;
+  bottom: 12px;
 }
 
 .ImgCarouselWidth {
@@ -18,4 +18,12 @@
   width: 15px;
   position: relative;
   bottom: 2px;
+}
+
+.BoxLink {
+  padding: 0px;
+}
+
+.card-img-top {
+  object-fit: cover !important;
 }

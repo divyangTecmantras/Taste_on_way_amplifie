@@ -89,7 +89,7 @@ const LandingCarousel1 = () => {
                                             return (
                                                 <div className="col-lg-4 col-md-4" key={data.id}>
                                                     <div
-                                                        className="card BoxCard"
+                                                        className="card BoxCard BoxCardWidth"
                                                         style={{ width: '18rem' }}
                                                     >
                                                         <img

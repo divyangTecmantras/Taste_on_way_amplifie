@@ -11,7 +11,7 @@
   color: #999999;
 }
 .DivBoxAddress {
-  margin: 30px 15px 0px;
+  /* margin: 30px 15px 0px; */
   padding: 15px;
   border: 1px solid #ccc;
   height: 270px;
@@ -62,4 +62,8 @@
   font-size: 15px;
   font-weight: 600;
   border-radius: 0px;
+}
+
+.AddTextWrap {
+  word-wrap: break-word;
 }

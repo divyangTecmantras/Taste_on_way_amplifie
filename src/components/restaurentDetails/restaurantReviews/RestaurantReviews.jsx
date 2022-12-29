@@ -19,7 +19,7 @@ const RestaurantReviews = () => {
     const { reviewList } = useSelector((state) => ({
         reviewList: state?.kitchenOwnerReviewHistory?.payload?.data,
     }));
-
+    console.log('18', reviewList);
     useEffect(() => {
         const data = {
             business_owner_id: KitchenOwnerId,
@@ -38,9 +38,9 @@ const RestaurantReviews = () => {
     };
 
     return (
-        <div className="row TopMargin">
+        <div className="TopMargin">
             {reviewList?.length > 0 ? (
-                <div className="col-lg-12">
+                <div className="">
                     <div className="">
                         <h3>
                             <FormattedMessage

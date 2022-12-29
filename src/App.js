@@ -20,6 +20,7 @@ import HomeHeader from './components/homePage/homeHeader/HomeHeader';
 import { useEffect } from 'react';
 import { fetchUserInfo } from './redux/actions/user/userInfo';
 import AboutUs from './components/AboutUs/AboutUs';
+import './assets/styles/media.css';
 
 function App() {
     const { otpResponse } = useSelector((state) => ({

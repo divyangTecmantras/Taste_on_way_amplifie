@@ -69,7 +69,7 @@ const UserProfileHeader = () => {
                                 aria-expanded="false"
                                 data-reference="parent"
                             />
-                            <div className="dropdown-menu">
+                            <div className="dropdown-menu HeaderDropDown">
                                 <button
                                     className="dropdown-item"
                                     onClick={() => navigate('/profile')}
@@ -93,7 +93,7 @@ const UserProfileHeader = () => {
                     </div>
                 </div>
                 <select
-                    className="form-control col-md-1"
+                    className="form-control col-md-1 Divclassmarg"
                     value={context.locale}
                     onChange={context.selectLang}
                 >

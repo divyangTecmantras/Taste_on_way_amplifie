@@ -12,7 +12,7 @@ const HomeWidget1 = () => {
             <div className="container">
                 <div className="row TopMargin">
                     <div className="col-sm-12 col-md-4 col-md-4">
-                        <div className="card BoxCard" style={{ width: '18rem' }}>
+                        <div className="card BoxCard BoxCardWidth" style={{ width: '18rem' }}>
                             <img
                                 src={dasher}
                                 className="card-img-top BoxImg"
@@ -42,7 +42,7 @@ const HomeWidget1 = () => {
                     </div>
 
                     <div className="col-sm-12 col-md-4 col-md-4 TopBoxmargin">
-                        <div className="card BoxCard" style={{ width: '18rem' }}>
+                        <div className="card BoxCard BoxCardWidth" style={{ width: '18rem' }}>
                             <img
                                 src={partner}
                                 className="card-img-top BoxImg"
@@ -72,7 +72,7 @@ const HomeWidget1 = () => {
                     </div>
 
                     <div className="col-sm-12 col-md-4 col-md-4 TopBoxmargin">
-                        <div className="card BoxCard" style={{ width: '18rem' }}>
+                        <div className="card BoxCard BoxCardWidth" style={{ width: '18rem' }}>
                             <img src={app} className="card-img-top BoxImg" alt="become a dasher" />
                             <div className="card-body BoxTextCenter">
                                 <h5 className="card-title">

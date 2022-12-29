@@ -30,6 +30,7 @@ const CartDetails = () => {
 
     return (
         <div>
+            <div className="ProceedtocheckoutBg"></div>
             <div className="container ProceedtocheckoutCont">
                 <div className="row TopMargin">
                     <CartAddress />

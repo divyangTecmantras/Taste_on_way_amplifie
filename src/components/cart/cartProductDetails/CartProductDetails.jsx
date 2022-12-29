@@ -47,8 +47,8 @@ const CartProductDetails = () => {
                 case 'razorpay':
                     {
                         const options = {
-                            key: `${process.env.REACT_APP_API_KEY_RAZOR_PAY}`,
-                            key_secret: `${process.env.REACT_APP_API_SECRET_KEY_RAZOR_PAY}`,
+                            key: 'rzp_test_E4EKGFVJAABMLb',
+                            key_secret: '2zZeFCS9Mfe7zqGnHsmh4MIy',
                             amount: cartDetails?.data?.total * 100,
                             name: 'Taste on Way',
                             description: 'Test Transaction',
@@ -233,9 +233,9 @@ const CartProductDetails = () => {
     };
     return (
         <div className="col-lg-4">
-            <div className="row PaymentBar">
+            <div className="row PaymentBar RespmargTop">
                 <div className="col-sm-12">
-                    <div className="text-center mb-5">
+                    <div className="text-center">
                         <h2>
                             {
                                 cartDetails?.data?.cart?.[0]?.item?.[0]?.business_owner_address
@@ -526,7 +526,7 @@ const CartProductDetails = () => {
                             <div className="row mt-5">
                                 <div className="col">
                                     <div className="row">
-                                        <div className="col-lg-6">
+                                        <div className="col-lg-12">
                                             {appliedPromoCode ||
                                             cartDetails?.data?.couponValue > 0 ? (
                                                 <div
@@ -534,7 +534,7 @@ const CartProductDetails = () => {
                                                     className="ApplyCouponDiv"
                                                 >
                                                     <button
-                                                        className="bg-transparent border-0 text-danger"
+                                                        className="bg-transparent border-0  btncolor"
                                                         onClick={() => removePromoCode()}
                                                     >
                                                         Remove
@@ -546,7 +546,7 @@ const CartProductDetails = () => {
                                                     className="ApplyCouponDiv"
                                                 >
                                                     <button
-                                                        className="bg-transparent border-0"
+                                                        className="bg-transparent border-0 btncolor"
                                                         data-toggle="modal"
                                                         data-target="#exampleModalpromocode"
                                                     >
@@ -809,7 +809,7 @@ const CartProductDetails = () => {
                                     <div className="d-flex justify-content-between mt-3">
                                         <button
                                             type="button"
-                                            className="btn btn-danger"
+                                            className="btn btn-danger respmargleft"
                                             data-dismiss="modal"
                                             onClick={() =>
                                                 navigate(

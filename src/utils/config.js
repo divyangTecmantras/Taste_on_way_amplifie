@@ -6,7 +6,7 @@ const options = {
 
 const config = {
     production: {
-        API_URL: 'http://192.168.1.26:24/api/v2/', //http://192.168.1.26:24/api/v2/
+        API_URL: 'https://dev-api.tastesonway.com/api/v2/', //http://192.168.1.26:24/api/v2/
         options,
     },
     staging: {
@@ -21,6 +21,6 @@ const config = {
 
 export const allConfig = config;
 
-const environmentConfig = 'staging';
+const environmentConfig = 'production';
 
 export default config[environmentConfig] ?? config.production;

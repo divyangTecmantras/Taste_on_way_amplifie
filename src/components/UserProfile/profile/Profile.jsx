@@ -53,7 +53,7 @@ const Profile = () => {
                         <img
                             style={{ height: '200px', width: '200px', borderRadius: '50%' }}
                             src={userInfo?.avatar}
-                            className="RestProfileImg RestProfImgadd"
+                            className="RestProfileImg RestProfImgadd RespProfileAddImg"
                             alt="Editprofile"
                         />
 

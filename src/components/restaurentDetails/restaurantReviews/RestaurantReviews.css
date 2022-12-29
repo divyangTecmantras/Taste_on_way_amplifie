@@ -1,24 +1,24 @@
 .TopMargin {
-    margin-top: 65px;
-  }
-  .DeliciousDosaFont {
-    font-size: 18px;
-    font-weight: 600;
-    color: #999999;
-  }
-  .StarImgRest {
-    width: 15px;
-    position: relative;
-    bottom: 2px;
-  }
-  .DivClassControlsRestDetails {
-    display: flex;
-    position: relative;
-    left: 23px;
-    float: right;
-    bottom: 52px;
-  }
-  .ImgCarouselWidth {
+  margin-top: 65px;
+}
+.DeliciousDosaFont {
+  font-size: 18px;
+  font-weight: 600;
+  color: #999999;
+}
+.StarImgRest {
+  width: 15px;
+  position: relative;
+  bottom: 2px;
+}
+.DivClassControlsRestDetails {
+  display: flex;
+  position: relative;
+  left: 23px;
+  float: right;
+  bottom: 52px;
+}
+.ImgCarouselWidth {
   width: 45px;
 }
 .carousel-control-next,
@@ -27,12 +27,23 @@
   width: 65px;
 }
 .star {
-   display: flex;
-  }
-  .undefined.react-stars{
-     overflow: hidden;
-    position: relative;
-    margin-left: 10px;
-    bottom: 1px;
-  }
-  
+  display: flex;
+}
+.undefined.react-stars {
+  overflow: hidden;
+  position: relative;
+  margin-left: 10px;
+  bottom: 1px;
+}
+
+.RespMarTopCard .card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.RespMarTopCard .card {
+  height: 135px;
+}

@@ -18,6 +18,8 @@ const RestaurantMenu = () => {
         kitchenOwnerMenuList: state?.kitchenOwnerMenuList?.payload?.data?.data,
     }));
 
+    console.log('20', kitchenOwnerMenuList);
+
     useEffect(() => {
         window.scrollTo(0, 898);
     });
@@ -37,8 +39,8 @@ const RestaurantMenu = () => {
     };
 
     return (
-        <div className="row TopMargin">
-            <div className="col-lg-12">
+        <div className=" TopMargin">
+            <div className="">
                 <div className="">
                     <h3>
                         <FormattedMessage

@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 const Footer = () => {
     return (
         <div>
-            <footer className="container-fluid HomeBackBlack mt-5">
+            <footer className="container-fluid HomeBackBlack ">
                 <div className="container PaddingHome">
                     <div className="row">
                         <div className="col-sm-12 col-md-4 col-md-4">

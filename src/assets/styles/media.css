@@ -15,6 +15,11 @@
   .InputEmailOTP {
     margin-top: 15px;
   }
+
+  .Divclassmarg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 425px) {
@@ -63,6 +68,14 @@
   .CheckoutCancelPolicyBanner {
     width: 100%;
   }
+
+  .RespBtnBg {
+    width: 45px !important;
+  }
+
+  .ImgOverlayProf {
+    left: auto !important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -72,6 +85,11 @@
 
   .LandingPageBgRestaurents {
     height: 1086px;
+  }
+
+  .BoxCardWidth,
+  .BoxCard {
+    width: auto !important;
   }
 }
 
@@ -129,7 +147,11 @@
   }
 
   .LandingPageBgRestaurents {
-    height: auto !important;
+    height: 550px !important;
+  }
+
+  .BannerImgRestaurent {
+    visibility: hidden;
   }
 
   .BoxSpecials {
@@ -168,7 +190,7 @@
     top: 6px !important;
     right: 0;
     bottom: 0;
-    left: 60px !important;
+    /* left: 60px !important; */
     padding: 1.25rem;
     border-radius: calc(0.25rem - 1px);
   }
@@ -177,6 +199,10 @@
     font-size: 21px;
     letter-spacing: 1px;
     line-height: 1;
+  }
+
+  .RespMargTop {
+    margin-top: 0 !important;
   }
 
   .respmargtopprof {
@@ -221,6 +247,23 @@
 
   .RespCheckoutCard {
     height: auto;
+  }
+
+  .RespplaceInput {
+    width: 100px !important;
+  }
+
+  .ImgCarouselWidth {
+    top: 0px;
+    position: relative;
+  }
+
+  .card.BoxCardWidth {
+    width: auto !important;
+  }
+
+  .NameProfile {
+    text-align: center;
   }
 
   /*
@@ -353,5 +396,16 @@
 
   .RespCheckoutCard {
     height: 350px;
+  }
+
+  .ContentImgRest {
+    float: left !important ;
+  }
+}
+
+@media (max-width: 991px) {
+  .DivRightCancelled {
+    position: absolute;
+    bottom: 25px;
   }
 }

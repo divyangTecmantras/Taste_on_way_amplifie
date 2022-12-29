@@ -911,7 +911,7 @@ body {
 
 .NameProfile {
   margin-top: 110px;
-  text-align: center;
+  /* text-align: center; */
   font-weight: 600;
   font-size: 24px;
   position: relative;
@@ -1002,6 +1002,8 @@ body {
 .WidthProfImg {
   width: 85px;
   margin-top: 8px;
+  height: 85px;
+  object-fit: cover;
 }
 
 .TrackOrder {
@@ -1252,10 +1254,10 @@ body {
   color: black;
   font-weight: bolder;
 }
-.MainContainerRest .row {
+/* .MainContainerRest .row {
   margin-left: 5px !important;
   margin-right: 5px !important;
-}
+} */
 /* Login modal*/
 .buttonChange {
   align-items: center;
@@ -1271,9 +1273,9 @@ body {
 }
 
 /* search bar style*/
-.input-group {
+/*.input-group {
   width: 120%;
-}
+}*/
 .suggestionInput {
   display: flex;
   flex-direction: column;
@@ -1287,11 +1289,13 @@ button.BoxLink {
 
 /* cart item*/
 .cartItems {
-  height: 393px;
+  height: 230px;
   width: auto;
   overflow-x: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
+
 .cartItems::-webkit-scrollbar {
   display: none;
 }
@@ -1305,6 +1309,7 @@ button.BoxLink {
 
 .ApplyCouponCode {
   width: 22px;
+  margin-right: 10px;
 }
 
 .ImgWidthPromocode {
@@ -1364,9 +1369,10 @@ button.BoxLink {
   display: flex;
   overflow-y: scroll;
   width: 100%;
-  height: 480px;
+  height: 409px;
   flex-flow: column;
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 .side-bar::-webkit-scrollbar {
@@ -1377,24 +1383,24 @@ button.BoxLink {
   justify-content: center;
   align-items: center;
 }
-.OrderItems{
+.OrderItems {
   font-size: 16px;
 }
-.ItemQuantity{
+.ItemQuantity {
   font-size: 16px;
-margin-top: 9px;
-color: #999999;
+  margin-top: 9px;
+  color: #999999;
 }
-.ordersummaryrupee{
+.ordersummaryrupee {
   width: 10px;
 }
-.starimg{
+.starimg {
   width: 14px;
-position: relative;
-bottom: 2px;
-left: 2px;
+  position: relative;
+  bottom: 2px;
+  left: 2px;
 }
-.FloatRightAddress{
+.FloatRightAddress {
   height: 27px;
   display: block;
   overflow: hidden;
@@ -1433,19 +1439,24 @@ input::-webkit-inner-spin-button {
   white-space: nowrap;
   width: 35%;
 }
-.reorderbtn{
+.reorderbtn {
   display: flex;
   justify-content: center;
   justify-items: center;
 }
 .DeliveryStatus {
-    float: right;
-    font-size: 15px;
-    color: #E70F0F;
-    margin-top: 3px;
+  float: right;
+  font-size: 15px;
+  color: #e70f0f;
+  margin-top: 3px;
 }
-.errorFallBack_cls{
-  color:#f0170f;
+.errorFallBack_cls {
+  color: #f0170f;
   font-size: 20px;
   font-weight: 500px;
+}
+
+.DivRightCancelled {
+  position: absolute;
+  bottom: 10px;
 }

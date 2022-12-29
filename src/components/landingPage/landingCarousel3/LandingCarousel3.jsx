@@ -63,7 +63,11 @@ const LandingCarousel3 = () => {
                         data-slide="prev"
                         onClick={prviousOnClick}
                     >
-                        <img src={previousSliderImg} className="ImgCarouselWidth" alt="" />
+                        <img
+                            src={previousSliderImg}
+                            className="ImgCarouselWidth ImgCarouselWidthresp"
+                            alt=""
+                        />
                     </button>
                     <button
                         className={

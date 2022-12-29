@@ -15,7 +15,7 @@ const RestaurantEnterAddress = () => {
     return (
         <div>
             <div className="row DeliciousDosaRow">
-                <div className="DeliciousDosaFont">
+                <div className="  col-sm-12 DeliciousDosaFont">
                     {`${
                         kitchenOwnerDetails?.name == null
                             ? `Taste On Way - `

@@ -76,7 +76,7 @@ const CartAddress = ({ intl }) => {
     });
     return (
         <div className="col-lg-8">
-            <div className="row">
+            <div className="">
                 <div className="DivDeliveryAddress">
                     <div className="DeliciousDosaFont">
                         <FormattedMessage
@@ -107,7 +107,7 @@ const CartAddress = ({ intl }) => {
                                                 defaultMessage="Home"
                                             />
                                         </span>
-                                        <p className="TextAdd">
+                                        <p className="TextAdd AddTextWrap">
                                             {userAddress
                                                 ? `${d.address},${d.area},${d.land_mark},${d.pin_code}.`
                                                 : ''}

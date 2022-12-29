@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { fetchUserOrderHistory } from '../../../redux/actions/user/userOrderHistory';
 import TrackOrderDetails from '../TrackOrderDetails';
 import { Modal } from 'react-bootstrap';
+import RefrralCode from '../RefrralCode/RefrralCode';
 const YourOrder = () => {
     const [searchValue, setSearchValue] = useState('all');
     const dispatch = useDispatch();
@@ -43,12 +44,13 @@ const YourOrder = () => {
                 role="tabpanel"
                 aria-labelledby="v-pills-home-tab"
             >
-                <h2 className="respmargtopprof">
+                <h2 className="respmargtopprof RespMargTop">
                     <FormattedMessage
                         id="UserProfile_page.Your Order"
                         defaultMessage="Your Order"
                     />
                 </h2>
+                <RefrralCode />
 
                 <div className="input-group mt-4">
                     <select onChange={handleChange} className="form-control">
@@ -62,7 +64,7 @@ const YourOrder = () => {
                     {userOrderHistory?.map((data) => (
                         <div className="row" key={data.id}>
                             <div className="col-lg-12">
-                                <div className="card mt-4 BoxCardProf ">
+                                <div className="card mt-4  ">
                                     <h5 className="card-header Boxcardborderbottom">
                                         <div className="row">
                                             <div className="col-lg-2">
@@ -91,8 +93,10 @@ const YourOrder = () => {
 
                                             {data.order_status == 'Delivered' ||
                                             data.order_status == 'Cancelled' ? (
-                                                <div className="col-lg-6 d-flex justify-content-end">
-                                                    <div>{data.order_status}</div>
+                                                <div className="col-lg-6 d-flex justify-content-end   ">
+                                                    <div className="btn btn-default DivRightCancelled">
+                                                        {data.order_status}
+                                                    </div>
                                                     <ErrorBoundary
                                                         FallbackComponent={ErrorFallback}
                                                     >
