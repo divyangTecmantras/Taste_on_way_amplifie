@@ -14,7 +14,7 @@ const LandingCarousel1 = () => {
     const [count, setCount] = useState(0);
     const { kitchenOwnerList, kitchenOwnerError } = useSelector((state) => ({
         kitchenOwnerList: state?.kitchenOwnerList?.payload?.data?.kitchen_owners?.data,
-        kitchenOwnerError: state?.kitchenOwnerList?.error?.response?.data,
+        kitchenOwnerError: state?.kitchenOwnerList?.error?.response,
     }));
 
     const nextOnClick = () => {
@@ -45,7 +45,7 @@ const LandingCarousel1 = () => {
                 <div className="DivClassControls">
                     <button
                         className={
-                            visible <= 3 || kitchenOwnerError
+                            visible <= 3 || kitchenOwnerError || kitchenOwnerList == undefined
                                 ? 'carousel-control-prev d-none'
                                 : 'carousel-control-prev'
                         }
@@ -58,7 +58,9 @@ const LandingCarousel1 = () => {
                     </button>
                     <button
                         className={
-                            visible >= kitchenOwnerList?.length || kitchenOwnerError
+                            visible >= kitchenOwnerList?.length ||
+                            kitchenOwnerError ||
+                            kitchenOwnerList == undefined
                                 ? 'carousel-control-next d-none'
                                 : 'carousel-control-next '
                         }
@@ -74,7 +76,11 @@ const LandingCarousel1 = () => {
                     <div className="carousel-inner mt-5">
                         <div className="carousel-item active">
                             {kitchenOwnerError ? (
-                                <div>{kitchenOwnerError?.message}</div>
+                                <div>
+                                    {kitchenOwnerError?.status == 500
+                                        ? `${kitchenOwnerError?.data?.message}`
+                                        : `${kitchenOwnerError?.data?.message}`}
+                                </div>
                             ) : kitchenOwnerList?.length === 0 ? (
                                 <div>
                                     <FormattedMessage
@@ -82,7 +88,7 @@ const LandingCarousel1 = () => {
                                         defaultMessage="No Kitchen Owner Found!"
                                     />
                                 </div>
-                            ) : (
+                            ) : kitchenOwnerList ? (
                                 <div className="row">
                                     {kitchenOwnerList &&
                                         kitchenOwnerList.slice(count, visible).map((data) => {
@@ -136,6 +142,8 @@ const LandingCarousel1 = () => {
                                             );
                                         })}
                                 </div>
+                            ) : (
+                                <div>{`Please Allow Location!`}</div>
                             )}
                         </div>
                     </div>

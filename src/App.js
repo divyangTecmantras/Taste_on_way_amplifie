@@ -24,12 +24,14 @@ import './assets/styles/media.css';
 
 function App() {
     const { otpResponse } = useSelector((state) => ({
-        otpResponse: state?.otpUser,
+        otpResponse: state?.otpUser?.payload,
     }));
+
     const dispatch = useDispatch();
     const token = getItem('token');
+
     useEffect(() => {
-        if (token) {
+        if (otpResponse) {
             dispatch(fetchUserInfo());
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

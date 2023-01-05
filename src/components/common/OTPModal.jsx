@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import OtpInput from 'react-otp-input';
+import { useDispatch } from 'react-redux';
 import nextImag from '../../assets/images/next.png';
+import { userLoginClean } from '../../redux/actions/user/userLogin';
+import { userRegisterClean } from '../../redux/actions/user/userRegister';
 
 const OTPModal = ({ otpData, otpSubmitButton }) => {
+    const dispatch = useDispatch();
     const [otpValue, setOtpValue] = useState('');
     const otpHandleChange = (value) => {
         setOtpValue(value);
@@ -30,6 +34,10 @@ const OTPModal = ({ otpData, otpSubmitButton }) => {
                             className="close"
                             data-dismiss="modal"
                             aria-label="Close"
+                            onClick={() => {
+                                dispatch(userLoginClean());
+                                dispatch(userRegisterClean());
+                            }}
                         >
                             <span aria-hidden="true">×</span>
                         </button>
