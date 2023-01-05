@@ -31,12 +31,14 @@ const LandingCarousel3 = () => {
     };
 
     useEffect(() => {
-        const orderAgainListData = {
-            latitude: '23.0747676',
-            longitude: '72.535598',
-            radius: 10,
-        };
-        dispatch(fetchOrderAgainList(orderAgainListData));
+        navigator.geolocation.getCurrentPosition((position) => {
+            const orderAgainListData = {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                radius: 10,
+            };
+            dispatch(fetchOrderAgainList(orderAgainListData));
+        });
     }, []);
 
     return (

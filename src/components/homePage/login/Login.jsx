@@ -244,7 +244,7 @@ const Login = ({ intl }) => {
                                                         aria-describedby="emailHelp"
                                                         placeholder={email}
                                                     />
-                                                    {inputChange ? ErrorMSG('email') : ' '}
+                                                    {ErrorMSG('email')}
                                                 </>
                                             ) : (
                                                 <>
