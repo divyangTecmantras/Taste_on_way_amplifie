@@ -28,6 +28,7 @@ import cancelOrderReducer from './reducers/order/cancelOrderReducer';
 import topFiveRestaurantsListReducer from './reducers/kitchenOwner/TopFiveRestaurantsListReducer';
 import orderAgainListReducer from './reducers/kitchenOwner/OrderAgainListReducer';
 import KitchenOwnerReviewReducer from './reducers/kitchenOwner/KitchenOwnerReviewReducer';
+import setUserAddressReducer from './reducers/user/setUserAddressReducer';
 const rootReducer = combineReducers({
     countryData: countryDataReducer,
     loginUser: loginUserReducer,
@@ -58,6 +59,7 @@ const rootReducer = combineReducers({
     removePromoCode: removePromoCodeReducer,
     cancelOrder: cancelOrderReducer,
     kitchenOwnerReviewHistory: KitchenOwnerReviewReducer,
+    setAddress: setUserAddressReducer,
 });
 
 export default rootReducer;

@@ -10,8 +10,8 @@ import { fetchRemovePromoCode } from '../../../redux/actions/promoCode/removePro
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-
 import { Modal } from 'react-bootstrap';
+import image from '../../../assets/images/Tastes_on_way.png';
 import veg from '../../../assets/images/veg.png';
 import customize from '../../../assets/images/customize.png';
 import rupee from '../../../assets/images/rupee.png';
@@ -19,6 +19,7 @@ import applyCoupon from '../../../assets/images/apply-coupon.png';
 import offercodeicon from '../../../assets/images/offercodeicon.png';
 import checkListIcon from '../../../assets/images/check-list-icon.png';
 import './CartProductDetails.css';
+import Toastify from '../../common/Toastify';
 const CartProductDetails = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -28,17 +29,24 @@ const CartProductDetails = () => {
     const cartProducts = JSON.parse(getItem('cartData'));
     const cartDetails = JSON.parse(getItem('cartDetails'));
     const appliedPromoCode = JSON.parse(getItem('appliedCoupon'));
-    const currentAddress = JSON.parse(getItem('currentAddress'));
+    const lat = getItem('lat');
+    const long = getItem('long');
+    const userAddress = JSON.parse(getItem('userAddress'));
 
-    const { viewCartItems, cartItemId, createOrder, promoCodes, setAddress } = useSelector(
-        (state) => ({
+    const defaultAddress =
+        userAddress?.data?.length >= 0
+            ? userAddress?.data?.filter((d) => d.is_delivery_address == 'Yes')
+            : null;
+
+    const { viewCartItems, cartItemId, createOrder, promoCodes, setAddress, userDetails } =
+        useSelector((state) => ({
             viewCartItems: state?.viewCartItems?.payload?.data,
             cartItemId: state?.cartItems?.id,
             createOrder: state?.createOrder?.payload?.data,
             promoCodes: state?.promoCodes?.payload?.data,
             setAddresas: state?.userAddress?.data,
-        }),
-    );
+            userDetails: state?.userInfo?.payload?.data,
+        }));
 
     useEffect(() => {
         dispatch(fetchGetPromoCodeData());
@@ -53,7 +61,7 @@ const CartProductDetails = () => {
                             name: 'Taste on Way',
                             description: 'Test Transaction',
                             order_id: createOrder.Razorpay_order_id,
-                            image: 'https://example.com/your_logo',
+                            image: image,
                             handler: function (response) {
                                 const apiData = {
                                     order_id: createOrder.order_id,
@@ -68,9 +76,9 @@ const CartProductDetails = () => {
                                 navigate('/orderDetails');
                             },
                             prefill: {
-                                name: 'Gaurav Kumar',
-                                email: 'gaurav.kumar@example.com',
-                                contact: '8758236737',
+                                name: userDetails?.name,
+                                email: userDetails?.email,
+                                contact: userDetails?.mobile_number,
                             },
                             theme: {
                                 color: '#3399cc',
@@ -108,8 +116,8 @@ const CartProductDetails = () => {
         const menuItems = transferDataAddToCart(data);
 
         const apiData = {
-            lat: '23.0130363',
-            long: '72.5133087',
+            lat: lat,
+            long: long,
             redious: '5',
             menu_items: menuItems,
         };
@@ -139,8 +147,8 @@ const CartProductDetails = () => {
         const menuItems = transferDataAddToCart(cartData);
 
         const apiData = {
-            lat: '23.0130363',
-            long: '72.5133087',
+            lat: lat,
+            long: long,
             redious: '5',
             menu_items: menuItems,
         };
@@ -161,11 +169,15 @@ const CartProductDetails = () => {
         const apiData = {
             business_owner_id: data?.item[0]?.business_owner.id,
             business_owner_address_id: data?.item[0]?.business_owner_address.id,
-            user_address_id: 43,
+            user_address_id: defaultAddress?.[0]?.id,
             date_for_incoming_order: `${date}-${month}-${year}`,
             time_for_incoming_order: time,
         };
-        dispatch(fetchCreateOrder(apiData));
+        if (defaultAddress.length == 0 || defaultAddress == null) {
+            Toastify('Please Select Address', 'error');
+        } else {
+            dispatch(fetchCreateOrder(apiData));
+        }
     };
 
     const applyPromoCode = (id, flag) => {
@@ -223,8 +235,8 @@ const CartProductDetails = () => {
             setShow(false);
             const menuItems = transferDataAddToCart(data);
             const apiData = {
-                lat: '23.0130363',
-                long: '72.5133087',
+                lat: lat,
+                long: long,
                 redious: '5',
                 menu_items: menuItems,
             };
@@ -414,14 +426,6 @@ const CartProductDetails = () => {
                                                                                                                                 value={
                                                                                                                                     ing.id
                                                                                                                                 }
-                                                                                                                                // onChange={(
-                                                                                                                                //     e,
-                                                                                                                                // ) =>
-                                                                                                                                //     handleChangeCheckBox(
-                                                                                                                                //         e,
-                                                                                                                                //         ing,
-                                                                                                                                //     )
-                                                                                                                                // }
                                                                                                                             />{' '}
                                                                                                                             <span>
                                                                                                                                 {
@@ -455,11 +459,6 @@ const CartProductDetails = () => {
                                                                                                     type="button"
                                                                                                     className="btn btn-danger btnradius"
                                                                                                     data-dismiss="modal"
-                                                                                                    // onClick={() =>
-                                                                                                    //     addItemClick(
-                                                                                                    //         data.id,
-                                                                                                    //     )
-                                                                                                    // }
                                                                                                 >
                                                                                                     <FormattedMessage
                                                                                                         id="RestaurentDetails.Add Item"
@@ -959,17 +958,31 @@ const CartProductDetails = () => {
             </Modal>
 
             <div className="row PaymentBar mt-5 mb-5">
-                <div className="col ">
-                    <div className="DeliciousDosaFontNew">Deliver to:</div>
-                    <div className="TextColor mt-3">
-                        {currentAddress?.address} {','}
-                        {currentAddress?.area} {','}
-                        {currentAddress?.landMark}
-                        {','}
-                        {currentAddress?.city} {','}
-                        {currentAddress?.pinCode}
-                    </div>
-                </div>
+                {defaultAddress?.length > 0 ? (
+                    <>
+                        {userAddress?.data?.map((d) => {
+                            if (d.is_delivery_address == 'Yes') {
+                                return (
+                                    <div className="col " key={d.id}>
+                                        <div className="DeliciousDosaFontNew">Deliver to:</div>
+                                        <div className="TextColor mt-3">
+                                            {d?.address} {','}
+                                            {d?.area} {','}
+                                            {d?.land_mark}
+                                            {','}
+                                            {d?.city?.name} {','}
+                                            {d?.pin_code}
+                                        </div>
+                                    </div>
+                                );
+                            }
+                        })}
+                    </>
+                ) : userAddress?.data?.length == 0 ? (
+                    <div className="col">{`Please Add Address for delivery`}</div>
+                ) : (
+                    <div className="col">{`Please select Address for delivery`}</div>
+                )}
             </div>
 
             <div className="row PaymentBar mt-5 mb-5">

@@ -11,6 +11,7 @@ import { fetchUserOrderHistory } from '../../../redux/actions/user/userOrderHist
 import TrackOrderDetails from '../TrackOrderDetails';
 import { Modal } from 'react-bootstrap';
 import RefrralCode from '../RefrralCode/RefrralCode';
+import { getItem } from '../../../utils/utils';
 const YourOrder = () => {
     const [searchValue, setSearchValue] = useState('all');
     const dispatch = useDispatch();
@@ -20,12 +21,14 @@ const YourOrder = () => {
     const { userOrderHistory } = useSelector((state) => ({
         userOrderHistory: state?.userOrderHistory?.payload?.data?.data,
     }));
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     useEffect(() => {
         const apiData = {
             date_filter: searchValue,
-            latitude: '23.0747676',
-            longitude: '72.535598',
+            latitude: lat,
+            longitude: long,
             radius: '6',
         };
         dispatch(fetchUserOrderHistory(apiData));

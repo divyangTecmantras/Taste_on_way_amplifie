@@ -6,6 +6,7 @@ import LandingCarousel1 from '../landingCarousel1/LandingCarousel1';
 import LandingCarousel2 from '../landingCarousel2/LandingCarousel2';
 import LandingFAQ from '../landingFAQ/LandingFAQ';
 import { fetchKitchenOwnerList } from '../../../redux/actions/kitchenOwner/KitchenOwnerList';
+import Geocode from 'react-geocode';
 import { fetchTopFiveRestaurantsList } from '../../../redux/actions/kitchenOwner/TopFiveRestaurantsList';
 import { getItem, removeItem } from '../../../utils/utils';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,28 +20,34 @@ const LandingPage = () => {
     }));
 
     useEffect(() => {
-        const latitude = getItem('lat');
-        const longitude = getItem('long');
-        const GEOCODE_API_KEY = 'AIzaSyDcjtGb2jSVKXsUjxVAcJx6hboHbUe6fqI';
-        async function fetchData() {
-            const response = await fetch(
-                `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GEOCODE_API_KEY}`,
-            );
-            const json = await response.json();
-            const areaName = json?.results?.[0]?.address_components?.[0]?.long_name;
-            const cityName = json?.results?.[0]?.address_components?.[1]?.short_name;
-            const apiData = {
-                lat: latitude,
-                long: longitude,
-                city_name: cityName,
-                radius: '5',
-                search_by: '',
-                area_name: areaName,
-            };
-            dispatch(fetchKitchenOwnerList(apiData));
-            dispatch(fetchTopFiveRestaurantsList(apiData));
-        }
-        fetchData();
+        const lat = getItem('lat');
+        const long = getItem('long');
+        Geocode.setApiKey('AIzaSyDcjtGb2jSVKXsUjxVAcJx6hboHbUe6fqI');
+        Geocode.setLanguage('en');
+        Geocode.setRegion('IN');
+        Geocode.setLocationType('ROOFTOP');
+        Geocode.enableDebug();
+        Geocode.fromLatLng(lat, long).then(
+            (response) => {
+                const areaName = response?.results?.[0]?.address_components?.[1]?.long_name;
+                const cityname = response?.results?.[0]?.address_components?.[2]?.short_name;
+
+                const apiData = {
+                    lat: lat,
+                    long: long,
+                    city_name: cityname,
+                    radius: '5',
+                    search_by: '',
+                    area_name: areaName,
+                };
+
+                dispatch(fetchKitchenOwnerList(apiData));
+                dispatch(fetchTopFiveRestaurantsList(apiData));
+            },
+            (error) => {
+                return error;
+            },
+        );
         if (kitchenOwnerList == 401) {
             removeItem('token');
         }

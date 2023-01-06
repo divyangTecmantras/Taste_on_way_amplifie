@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import addAddress from '../../../assets/images/add_address.png';
 import './Address.css';
+import { getItem } from '../../../utils/utils';
 
 const Address = ({ intl }) => {
     const zip = intl.formatMessage({ id: 'Place_holder.380015', defaultMessage: '380015' });
@@ -36,6 +37,8 @@ const Address = ({ intl }) => {
     const handleShow = () => setShow(!show);
     const handleDeleteShow = () => setDeleteShow(true);
     const handleDeleteClose = () => setDeleteShow(false);
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     const {
         userAddress,
@@ -111,8 +114,8 @@ const Address = ({ intl }) => {
                 land_mark: values.Landmark,
                 pin_code: values.Zip,
                 address_type: values.AddressType,
-                latitude: '23.0120',
-                longitude: '72.5108',
+                latitude: lat,
+                longitude: long,
             };
             dispatch(addUserAddress(apiData));
             resetForm();

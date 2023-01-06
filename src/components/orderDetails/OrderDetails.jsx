@@ -18,8 +18,8 @@ const OrderDetails = () => {
         cancelOrderResponse: state?.cancelOrder?.payload?.data,
     }));
     console.log(
-        '🚀 ~ file: OrderDetails.jsx:20 ~ const{orderDetails,cancelOrderResponse}=useSelector ~ orderDetails',
-        orderDetails,
+        '🚀 ~ file: OrderDetails.jsx:20 ~ const{orderDetails,cancelOrderResponse}=useSelector ~ cancelOrderResponse',
+        cancelOrderResponse,
     );
 
     const date = orderDetails?.date_for_incoming_order;
@@ -51,7 +51,7 @@ const OrderDetails = () => {
         };
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cancelOrderResponse]);
+    }, [cancelOrderResponse, cancel]);
 
     const renderTime = ({ remainingTime }) => {
         if (remainingTime === 0) {
@@ -81,6 +81,7 @@ const OrderDetails = () => {
             order_status: '6',
         };
         dispatch(fetchCancelOrder(apiData));
+        setCancel(true);
     };
     return (
         <div>

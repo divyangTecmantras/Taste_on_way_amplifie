@@ -3,14 +3,14 @@ import * as yup from 'yup';
 import { Modal } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { addUserAddress } from '../../../redux/actions/user/addUserAddress';
-import { setItem } from '../../../utils/utils';
-import { useDispatch, useSelector } from 'react-redux';
+import { getItem } from '../../../utils/utils';
+import { useDispatch } from 'react-redux';
 import home from '../../../assets/images/home.png';
 import addNewAddress from '../../../assets/images/addnewaddress.png';
 import { injectIntl } from 'react-intl';
 import './CartAddress.css';
-import { setUserAddress } from '../../../redux/actions/user/userAddress';
 import { FormattedMessage } from 'react-intl';
+import { fetchsetUserAddress } from '../../../redux/actions/user/setDeliveryAddress';
 const CartAddress = ({ intl }) => {
     const zip = intl.formatMessage({ id: 'Place_holder.380015', defaultMessage: '380015' });
     const city = intl.formatMessage({ id: 'Place_holder.Ahmedabad', defaultMessage: 'Ahmedabad' });
@@ -19,26 +19,18 @@ const CartAddress = ({ intl }) => {
         id: 'Place_holder.1006, hospitality exacel',
         defaultMessage: '1006, hospitality exacel',
     });
+    const lat = getItem('lat');
+    const long = getItem('long');
     const [show, setShow] = useState(false);
     const dispatch = useDispatch();
-
-    const { userAddress } = useSelector((state) => ({
-        userAddress: state?.userAddress?.payload?.data,
-    }));
-
+    const userAddress = JSON.parse(getItem('userAddress'));
     const handleShow = () => setShow(!show);
 
-    const handelDeliverHere = (id, address, area, landMark, city, pinCode) => {
-        const currentAddress = {
-            id: id,
-            address: address,
-            area: area,
-            landMark: landMark,
-            city: city,
-            pinCode: pinCode,
+    const handelDeliverHere = (id) => {
+        const apiData = {
+            address_id: id,
         };
-        setItem('currentAddress', JSON.stringify(currentAddress));
-        dispatch(setUserAddress(currentAddress));
+        dispatch(fetchsetUserAddress(apiData));
     };
     const formik = useFormik({
         initialValues: {
@@ -66,8 +58,8 @@ const CartAddress = ({ intl }) => {
                 land_mark: values.Landmark,
                 pin_code: values.Zip,
                 address_type: values.AddressType,
-                latitude: '23.0120',
-                longitude: '72.5108',
+                latitude: lat,
+                longitude: long,
             };
             dispatch(addUserAddress(apiData));
             resetForm();
@@ -84,7 +76,7 @@ const CartAddress = ({ intl }) => {
                             defaultMessage="Choose a delivery address"
                         />
                     </div>
-                    {userAddress?.length > 1 ? (
+                    {userAddress?.data?.length > 1 ? (
                         <div className="TextColor">
                             <FormattedMessage
                                 id="Cart_page.Multiple addresses in this location"
@@ -96,8 +88,8 @@ const CartAddress = ({ intl }) => {
                     )}
 
                     <div className="row">
-                        {userAddress?.length > 0 &&
-                            userAddress?.map((d) => {
+                        {userAddress?.data?.length > 0 &&
+                            userAddress?.data?.map((d) => {
                                 return (
                                     <div className="col DivBoxAddress" key={d.id}>
                                         <img src={home} alt="homeIcon" />
@@ -108,31 +100,32 @@ const CartAddress = ({ intl }) => {
                                             />
                                         </span>
                                         <p className="TextAdd AddTextWrap">
-                                            {userAddress
+                                            {userAddress?.data
                                                 ? `${d.address},${d.area},${d.land_mark},${d.pin_code}.`
                                                 : ''}
                                         </p>
-                                        {/* <p>38 mins</p> */}
-                                        <button
-                                            type="button"
-                                            className="btn btn-danger mt-5 BtnDeliverHere"
-                                            data-dismiss="modal"
-                                            onClick={() =>
-                                                handelDeliverHere(
-                                                    d.id,
-                                                    d.address,
-                                                    d.area,
-                                                    d.land_mark,
-                                                    d.city_name,
-                                                    d.pin_code,
-                                                )
-                                            }
-                                        >
-                                            <FormattedMessage
-                                                id="Cart_page.Deliver Here"
-                                                defaultMessage="Deliver Here"
-                                            />
-                                        </button>
+                                        {d.is_delivery_address == 'Yes' ? (
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger mt-5 BtnDeliverHere"
+                                                data-dismiss="modal"
+                                                disabled
+                                            >
+                                                Delivery Address
+                                            </button>
+                                        ) : (
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger mt-5 BtnDeliverHere"
+                                                data-dismiss="modal"
+                                                onClick={() => handelDeliverHere(d.id)}
+                                            >
+                                                <FormattedMessage
+                                                    id="Cart_page.Deliver Here"
+                                                    defaultMessage="Deliver Here"
+                                                />
+                                            </button>
+                                        )}
                                     </div>
                                 );
                             })}
@@ -196,11 +189,12 @@ const CartAddress = ({ intl }) => {
                                                     value={formik.values.Address}
                                                     onBlur={formik.handleBlur}
                                                 />
-                                                {formik.errors.Address && (
-                                                    <p style={{ color: 'red' }}>
-                                                        {formik.errors.Address}
-                                                    </p>
-                                                )}
+                                                {formik.errors.Address &&
+                                                    formik.touched.Address && (
+                                                        <p style={{ color: 'red' }}>
+                                                            {formik.errors.Address}
+                                                        </p>
+                                                    )}
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="inputAddress2">
@@ -219,7 +213,7 @@ const CartAddress = ({ intl }) => {
                                                     value={formik.values.Area}
                                                     onBlur={formik.handleBlur}
                                                 />
-                                                {formik.errors.Area && (
+                                                {formik.errors.Area && formik.touched.Area && (
                                                     <p style={{ color: 'red' }}>
                                                         {formik.errors.Area}
                                                     </p>
@@ -242,11 +236,12 @@ const CartAddress = ({ intl }) => {
                                                     value={formik.values.Landmark}
                                                     onBlur={formik.handleBlur}
                                                 />
-                                                {formik.errors.Landmark && (
-                                                    <p style={{ color: 'red' }}>
-                                                        {formik.errors.Landmark}
-                                                    </p>
-                                                )}
+                                                {formik.errors.Landmark &&
+                                                    formik.touched.Landmark && (
+                                                        <p style={{ color: 'red' }}>
+                                                            {formik.errors.Landmark}
+                                                        </p>
+                                                    )}
                                             </div>
                                             <div className="form-row">
                                                 <div className="form-group col-md-6">
@@ -266,7 +261,7 @@ const CartAddress = ({ intl }) => {
                                                         value={formik.values.City}
                                                         onBlur={formik.handleBlur}
                                                     />
-                                                    {formik.errors.City && (
+                                                    {formik.errors.City && formik.touched.City && (
                                                         <p style={{ color: 'red' }}>
                                                             {formik.errors.City}
                                                         </p>
@@ -290,7 +285,7 @@ const CartAddress = ({ intl }) => {
                                                         value={formik.values.Zip}
                                                         onBlur={formik.handleBlur}
                                                     />
-                                                    {formik.errors.Zip && (
+                                                    {formik.errors.Zip && formik.touched.Zip && (
                                                         <p style={{ color: 'red' }}>
                                                             {formik.errors.Zip}
                                                         </p>
@@ -340,11 +335,12 @@ const CartAddress = ({ intl }) => {
                                                             />
                                                         </option>
                                                     </select>
-                                                    {formik.errors.AddressType && (
-                                                        <p style={{ color: 'red' }}>
-                                                            {formik.errors.AddressType}
-                                                        </p>
-                                                    )}
+                                                    {formik.errors.AddressType &&
+                                                        formik.touched.AddressType && (
+                                                            <p style={{ color: 'red' }}>
+                                                                {formik.errors.AddressType}
+                                                            </p>
+                                                        )}
                                                 </div>
                                             </div>
 

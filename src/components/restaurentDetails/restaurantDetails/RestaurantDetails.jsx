@@ -10,10 +10,13 @@ import { useDispatch } from 'react-redux';
 import logo from '../../../assets/images/delicious dosa logo.png';
 import './RestaurantDetails.css';
 import '../../../assets/styles/media.css';
+import { getItem } from '../../../utils/utils';
 
 const RestaurantDetails = () => {
     const dispatch = useDispatch();
     const { KitchenOwnerId } = useParams();
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     useEffect(() => {
         const apiData = {
@@ -22,8 +25,8 @@ const RestaurantDetails = () => {
 
         const detailsAPIData = {
             kitchen_owner_id: KitchenOwnerId,
-            lat: '23.0124596',
-            long: '72.5125333',
+            lat: lat,
+            long: long,
             radius: 6,
         };
         dispatch(fetchKitchenOwnerDetails(detailsAPIData));
