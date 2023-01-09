@@ -11,6 +11,7 @@ import { fetchUserOrderHistory } from '../../../redux/actions/user/userOrderHist
 import TrackOrderDetails from '../TrackOrderDetails';
 import { Modal } from 'react-bootstrap';
 import RefrralCode from '../RefrralCode/RefrralCode';
+import { getItem } from '../../../utils/utils';
 const YourOrder = () => {
     const [searchValue, setSearchValue] = useState('all');
     const dispatch = useDispatch();
@@ -20,12 +21,14 @@ const YourOrder = () => {
     const { userOrderHistory } = useSelector((state) => ({
         userOrderHistory: state?.userOrderHistory?.payload?.data?.data,
     }));
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     useEffect(() => {
         const apiData = {
             date_filter: searchValue,
-            latitude: '23.0747676',
-            longitude: '72.535598',
+            latitude: lat,
+            longitude: long,
             radius: '6',
         };
         dispatch(fetchUserOrderHistory(apiData));
@@ -185,14 +188,6 @@ const YourOrder = () => {
                                                         />
                                                         {data.order_final_total}
                                                     </span>
-                                                </div>
-                                                <div className="BadgeMainDiv">
-                                                    <button className="btn btn-danger mt-3">
-                                                        <FormattedMessage
-                                                            id="UserProfile_page.Reorder"
-                                                            defaultMessage="Reorder"
-                                                        />
-                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

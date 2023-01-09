@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import rupee from '../../assets/images/rupeeiconblack.png';
+import rupee from '../../assets/images/rupee.png';
 import star from '../../assets/images/star.png';
 import '../../assets/styles/style.css';
 import '../../assets/styles/media.css';

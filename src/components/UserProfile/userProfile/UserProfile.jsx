@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Geocode from 'react-geocode';
 import Profile from '../profile/Profile';
 import EditProfile from '../editProfile/EditProfile';
 import Activity from '../activity/Activity';
@@ -9,6 +10,7 @@ import { fetchKitchenOwnerList } from '../../../redux/actions/kitchenOwner/Kitch
 import { useDispatch, useSelector } from 'react-redux';
 import '../../../assets/styles/media.css';
 import './UserProfile.css';
+import { getItem } from '../../../utils/utils';
 
 const UserProfile = () => {
     const dispatch = useDispatch();
@@ -18,29 +20,54 @@ const UserProfile = () => {
         customerSupport,
         addUserAddresssuccess,
         updateUserProfile,
+        setAddressSuccess,
     } = useSelector((state) => ({
         deleteUserAddress: state?.deleteAddress?.payload,
         customerSupportLoading: state?.customerSupport?.loading,
         customerSupport: state?.customerSupport?.payload.data,
         addUserAddresssuccess: state?.addUserAddress?.payload?.data,
         updateUserProfile: state?.updateUserProfile?.payload?.data,
+        setAddressSuccess: state?.setAddress?.payload,
     }));
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     useEffect(() => {
-        const kitchenListData = {
-            lat: '23.0363817',
-            long: '72.542188',
-            city_name: 'Ahmedabad',
-            radius: '5',
-            search_by: '',
-            area_name: 'Prahlad Nagar',
-        };
+        Geocode.setApiKey('AIzaSyDcjtGb2jSVKXsUjxVAcJx6hboHbUe6fqI');
+        Geocode.setLanguage('en');
+        Geocode.setRegion('IN');
+        Geocode.setLocationType('ROOFTOP');
+        Geocode.enableDebug();
+        Geocode.fromLatLng(lat, long).then(
+            (response) => {
+                const areaName = response?.results?.[0]?.address_components?.[1]?.long_name;
+                const cityname = response?.results?.[0]?.address_components?.[2]?.short_name;
+
+                const apiData = {
+                    lat: lat,
+                    long: long,
+                    city_name: cityname,
+                    radius: '5',
+                    search_by: '',
+                    area_name: areaName,
+                };
+
+                dispatch(fetchKitchenOwnerList(apiData));
+            },
+            (error) => {
+                return error;
+            },
+        );
         dispatch(fetchUserInfo());
         dispatch(fetchUserAddress());
-        dispatch(fetchKitchenOwnerList(kitchenListData));
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [deleteUserAddress, customerSupport, addUserAddresssuccess, updateUserProfile]);
+    }, [
+        deleteUserAddress,
+        customerSupport,
+        addUserAddresssuccess,
+        updateUserProfile,
+        setAddressSuccess,
+    ]);
     return (
         <>
             {customerSupportLoading ? (

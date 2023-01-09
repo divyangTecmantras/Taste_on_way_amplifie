@@ -1,28 +1,28 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+// import { useFormik } from 'formik';
+// import { useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { addCustomerReview } from '../../../redux/actions/user/customerReview';
-import reviewer from '../../../assets/images/reviewrestaurent.png';
+// import { addCustomerReview } from '../../../redux/actions/user/customerReview';
+// import reviewer from '../../../assets/images/reviewrestaurent.png';
 import feedback from '../../../assets/images/give us your feedback.png';
 import './Review.css';
 
 const Review = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const formik = useFormik({
-        initialValues: {
-            Review: '',
-        },
+    // const formik = useFormik({
+    //     initialValues: {
+    //         Review: '',
+    //     },
 
-        onSubmit: (values, { resetForm }) => {
-            const Review = {
-                feedback: values.Review,
-            };
-            dispatch(addCustomerReview(Review));
-            resetForm();
-        },
-    });
+    //     onSubmit: (values, { resetForm }) => {
+    //         const Review = {
+    //             feedback: values.Review,
+    //         };
+    //         dispatch(addCustomerReview(Review));
+    //         resetForm();
+    //     },
+    // });
 
     return (
         <div>
@@ -49,7 +49,7 @@ const Review = () => {
                     </p>
                 </div>
             </div>
-            <div
+            {/* <div
                 className="modal fade"
                 id="exampleModalreview"
                 tabIndex={-1}
@@ -138,7 +138,7 @@ const Review = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

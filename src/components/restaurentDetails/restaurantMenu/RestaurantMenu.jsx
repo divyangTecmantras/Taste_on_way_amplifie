@@ -18,8 +18,6 @@ const RestaurantMenu = () => {
         kitchenOwnerMenuList: state?.kitchenOwnerMenuList?.payload?.data?.data,
     }));
 
-    console.log('20', kitchenOwnerMenuList);
-
     useEffect(() => {
         window.scrollTo(0, 898);
     });

@@ -4,21 +4,23 @@ import { useEffect, useState } from 'react';
 import { GoogleMap, useJsApiLoader, DirectionsRenderer } from '@react-google-maps/api';
 import { MarkerF } from '@react-google-maps/api';
 import deliveryBoyIconMap_2 from '../../assets/images/deliveryBoyIconMap_2.png';
+import { getItem } from '../../utils/utils';
 
 const containerStyle = {
     width: '400px',
     height: '400px',
 };
-
-const center = { lat: 23.0146, lng: 72.5306 };
+const lat = getItem('lat');
+const long = getItem('long');
+const center = { lat: Number(lat), lng: Number(long) };
 export default function MapContainer({ source, destination, currentLocation, orderStatus }) {
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: 'AIzaSyDcjtGb2jSVKXsUjxVAcJx6hboHbUe6fqI',
         libraries: ['places'],
     });
-
+    // eslint-disable-next-line no-unused-vars
     const [map, setMap] = React.useState(null);
-    console.log('🚀 ~ file: MapContainer.jsx:20 ~ MapContainer ~ map', map);
+
     const [directionsResponse, setDirectionsResponse] = useState(null);
     const directionsService = new google.maps.DirectionsService();
     const liveLocation = currentLocation?.lat

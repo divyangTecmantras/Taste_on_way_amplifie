@@ -21,6 +21,8 @@ const RestaurantMenuItem = () => {
     const [active, setActive] = useState(null);
     const [count, setCount] = useState(0);
     const [itemChecked, setItemChecked] = useState([]);
+    const lat = getItem('lat');
+    const long = getItem('long');
 
     const menuItems = JSON.parse(getItem('cartData'));
     const [show, setShow] = useState(false);
@@ -155,8 +157,8 @@ const RestaurantMenuItem = () => {
         if (menuItems?.length > 0) {
             const menuItem = transferDataAddToCart(menuItems);
             const apiData = {
-                lat: '23.0130363',
-                long: '72.5133087',
+                lat: lat,
+                long: long,
                 redious: '5',
                 menu_items: menuItem,
             };
@@ -165,8 +167,8 @@ const RestaurantMenuItem = () => {
         } else {
             const menuItems = transferDataAddToCart(cartItems);
             const apiData = {
-                lat: '23.0130363',
-                long: '72.5133087',
+                lat: lat,
+                long: long,
                 redious: '5',
                 menu_items: menuItems,
             };
@@ -392,26 +394,6 @@ const RestaurantMenuItem = () => {
                                                                                                 </div>
                                                                                             );
                                                                                         }
-                                                                                        // else if (
-                                                                                        //     iv.id !=
-                                                                                        //     data.id
-                                                                                        // ) {
-                                                                                        //     return (
-                                                                                        //         <>
-                                                                                        //             <button
-                                                                                        //                 type="button"
-                                                                                        //                 className="btn btnCard"
-                                                                                        //                 onClick={() =>
-                                                                                        //                     onClickItemAdd(
-                                                                                        //                         data,
-                                                                                        //                     )
-                                                                                        //                 }
-                                                                                        //             >
-                                                                                        //                 Add
-                                                                                        //             </button>
-                                                                                        //         </>
-                                                                                        //     );
-                                                                                        // }
                                                                                     })
                                                                             ) : (
                                                                                 <button

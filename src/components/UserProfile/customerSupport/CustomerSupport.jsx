@@ -207,15 +207,6 @@ const CustomerSupport = () => {
                                     ref={comment}
                                 />
                             </div>
-
-                            <div className="form-group">
-                                <label htmlFor="exampleFormControlFile1">
-                                    <FormattedMessage
-                                        id="UserProfile_page.Example file input"
-                                        defaultMessage="Example file input"
-                                    />
-                                </label>
-                            </div>
                             <div className="mb-5">
                                 <button onClick={(e) => handleSubmit(e)} className="btn btn-danger">
                                     <FormattedMessage

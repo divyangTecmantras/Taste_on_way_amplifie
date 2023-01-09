@@ -46,3 +46,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.ScrollbarHidden::-webkit-scrollbar {
+  display: none;
+}

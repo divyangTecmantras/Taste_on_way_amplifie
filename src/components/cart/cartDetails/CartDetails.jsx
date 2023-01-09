@@ -6,27 +6,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CartDetails.css';
 import '../../../assets/styles/media.css';
 import { fetchUserAddress } from '../../../redux/actions/user/userAddress';
+import { getItem } from '../../../utils/utils';
 
 const CartDetails = () => {
-    const { addToCart, appliedPromoCode, removePromoCode, addUserAddressSuccess } = useSelector(
-        (state) => ({
-            addToCart: state?.addToCart?.payload,
-            appliedPromoCode: state?.applyPromoCode?.payload?.data,
-            removePromoCode: state?.removePromoCode?.payload?.data,
-            addUserAddressSuccess: state?.addUserAddress?.payload?.data,
-        }),
-    );
+    const {
+        addToCart,
+        appliedPromoCode,
+        removePromoCode,
+        addUserAddressSuccess,
+        setAddressSuccess,
+    } = useSelector((state) => ({
+        addToCart: state?.addToCart?.payload,
+        appliedPromoCode: state?.applyPromoCode?.payload?.data,
+        removePromoCode: state?.removePromoCode?.payload?.data,
+        addUserAddressSuccess: state?.addUserAddress?.payload?.data,
+        setAddressSuccess: state?.setAddress?.payload,
+    }));
 
+    const lat = getItem('lat');
+    const long = getItem('long');
     const dispatch = useDispatch();
     useEffect(() => {
         const apiData = {
-            lat: '23.0690888',
-            long: '72.6491766',
+            lat: lat,
+            long: long,
         };
         dispatch(fetchViewCart(apiData));
         dispatch(fetchUserAddress());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [addToCart, appliedPromoCode, removePromoCode, addUserAddressSuccess]);
+    }, [addToCart, appliedPromoCode, removePromoCode, addUserAddressSuccess, setAddressSuccess]);
 
     return (
         <div>

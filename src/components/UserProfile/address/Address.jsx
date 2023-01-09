@@ -19,6 +19,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import addAddress from '../../../assets/images/add_address.png';
 import './Address.css';
+import { getItem } from '../../../utils/utils';
+import { fetchsetUserAddress } from '../../../redux/actions/user/setDeliveryAddress';
 
 const Address = ({ intl }) => {
     const zip = intl.formatMessage({ id: 'Place_holder.380015', defaultMessage: '380015' });
@@ -30,32 +32,36 @@ const Address = ({ intl }) => {
     });
     const dispatch = useDispatch();
     const [edit, setEdit] = useState();
+    const [deleteId, setdeleteId] = useState();
     const [deleteShow, setDeleteShow] = useState(false);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(!show);
     const handleDeleteShow = () => setDeleteShow(true);
-    const handleDeleteClose = () => setDeleteShow(false);
+    const handleDeleteClose = () => {
+        setdeleteId();
+        setDeleteShow(false);
+    };
+    const lat = getItem('lat');
+    const long = getItem('long');
+    const userAddress = JSON.parse(getItem('userAddress'));
 
     const {
-        userAddress,
         deleteUserAddresssuccess,
         deleteUserAddresserror,
         addUserAddresssuccess,
         addUserAddressError,
     } = useSelector((state) => ({
-        userAddress: state?.userAddress?.payload?.data,
         deleteUserAddresssuccess: state?.deleteAddress?.payload?.message,
         deleteUserAddresserror: state?.deleteAddress?.error,
         addUserAddresssuccess: state?.addUserAddress?.payload?.data,
         addUserAddressError: state?.addUserAddress?.error,
     }));
 
-    const deleteAddress = (id) => {
+    const deleteAddress = () => {
         const addId = {
-            address_id: id,
+            address_id: deleteId,
         };
-
         dispatch(deleteUserAddress(addId));
     };
 
@@ -104,21 +110,39 @@ const Address = ({ intl }) => {
         }),
         enableReinitialize: true,
         onSubmit: (values, { resetForm }) => {
-            const apiData = {
+            const editApiData = {
+                address_id: edit?.id,
                 city_name: values.City,
                 address: values.Address,
                 area: values.Area,
                 land_mark: values.Landmark,
                 pin_code: values.Zip,
                 address_type: values.AddressType,
-                latitude: '23.0120',
-                longitude: '72.5108',
+                latitude: lat,
+                longitude: long,
             };
+            const addApiData = {
+                city_name: values.City,
+                address: values.Address,
+                area: values.Area,
+                land_mark: values.Landmark,
+                pin_code: values.Zip,
+                address_type: values.AddressType,
+                latitude: lat,
+                longitude: long,
+            };
+            const apiData = edit ? editApiData : addApiData;
             dispatch(addUserAddress(apiData));
             resetForm();
             setShow(!show);
         },
     });
+    const handelDeliverHere = (id) => {
+        const apiData = {
+            address_id: id,
+        };
+        dispatch(fetchsetUserAddress(apiData));
+    };
 
     return (
         <>
@@ -131,108 +155,102 @@ const Address = ({ intl }) => {
                 <h2 className="respmargtopprof RespMargTop">My Address</h2>
 
                 <div className="row">
-                    {userAddress?.map((data) => (
-                        <div className="col-lg-6" key={data.id}>
-                            <div className="card mt-4">
-                                <div className="card-body ProfileCardBody">
-                                    <div className="FloatRightCheckbox">
-                                        {data.is_delivery_address == 'Yes' ? (
-                                            <input type="checkbox" name="" checked />
-                                        ) : (
-                                            <input type="checkbox" name="" />
-                                        )}
-                                    </div>
-                                    <h5 className="card-title">{data.address_type}</h5>
-                                    <h6 className="card-subtitle mb-2 text-muted">
-                                        {data.address},{data.area}
-                                    </h6>
-                                    <p className="card-text">
-                                        {data.city.name} - {data.pin_code}
-                                    </p>
-
-                                    <button
-                                        onClick={() => {
-                                            setEdit(data);
-                                            handleShow(data.id);
-                                        }}
-                                        type="button"
-                                        className="card-link cardProfilelink"
-                                        data-toggle="modal"
-                                        data-target="#exampleModalAddAddress"
-                                    >
-                                        <FormattedMessage
-                                            id="UserProfile_page.Edit"
-                                            defaultMessage="Edit"
-                                        />
-                                    </button>
-
-                                    <button
-                                        onClick={handleDeleteShow}
-                                        className="card-link ml-4 cardProfilelink"
-                                    >
-                                        <FormattedMessage
-                                            id="UserProfile_page.Delete"
-                                            defaultMessage="Delete"
-                                        />
-                                    </button>
-
-                                    <Modal
-                                        show={deleteShow}
-                                        onHide={handleDeleteClose}
-                                        backdrop="static"
-                                    >
-                                        <Modal.Header>
-                                            <Modal.Title>
-                                                <FormattedMessage
-                                                    id="UserProfile_page.Delete Address"
-                                                    defaultMessage="Delete Address"
-                                                />
-                                            </Modal.Title>
-                                            <button
-                                                type="button"
-                                                className="close"
-                                                onClick={handleDeleteClose}
-                                            >
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </Modal.Header>
-                                        <Modal.Body>
+                    {userAddress?.data?.map((data) => {
+                        return (
+                            <div className="col-lg-6" key={data.id}>
+                                <div className="card mt-4">
+                                    <div className="card-body ProfileCardBody">
+                                        <h5 className="card-title">{data.address_type}</h5>
+                                        <h6 className="card-subtitle mb-2 text-muted">
+                                            {data.address},{data.area}
+                                        </h6>
+                                        <p className="card-text">
+                                            {data.city.name} - {data.pin_code}
+                                        </p>
+                                        <button
+                                            onClick={() => {
+                                                setEdit(data);
+                                                handleShow(data.id);
+                                            }}
+                                            type="button"
+                                            className="card-link cardProfilelink"
+                                            data-toggle="modal"
+                                            data-target="#exampleModalAddAddress"
+                                        >
                                             <FormattedMessage
-                                                id="UserProfile_page.Are You Sure You Want to Delete This Address
-                                            Permanently?"
-                                                defaultMessage="Are You Sure You Want to Delete This Address
-                                            Permanently?"
+                                                id="UserProfile_page.Edit"
+                                                defaultMessage="Edit"
                                             />
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                            <button
-                                                className="btn mr-2 btn-outline-danger btnradius"
-                                                onClick={handleDeleteClose}
-                                            >
-                                                <FormattedMessage
-                                                    id="UserProfile_page.NO"
-                                                    defaultMessage="NO"
-                                                />
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setdeleteId(data.id);
+                                                handleDeleteShow();
+                                            }}
+                                            className="card-link ml-4 cardProfilelink"
+                                        >
+                                            <FormattedMessage
+                                                id="UserProfile_page.Delete"
+                                                defaultMessage="Delete"
+                                            />
+                                        </button>
+                                        {data.is_delivery_address == 'Yes' ? (
+                                            <button className="card-link ml-4 border-0" disabled>
+                                                Default
                                             </button>
+                                        ) : (
                                             <button
                                                 onClick={() => {
-                                                    deleteAddress(data.id);
-                                                    handleDeleteClose();
+                                                    handelDeliverHere(data.id);
                                                 }}
-                                                className="btn btn-danger btnradius"
+                                                className="card-link ml-4 cardProfilelink"
                                             >
-                                                <FormattedMessage
-                                                    id="UserProfile_page.YES"
-                                                    defaultMessage="YES"
-                                                />
+                                                Set Default
                                             </button>
-                                        </Modal.Footer>
-                                    </Modal>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-
+                        );
+                    })}
+                    <Modal show={deleteShow} onHide={handleDeleteClose} backdrop="static">
+                        <Modal.Header>
+                            <Modal.Title>
+                                <FormattedMessage
+                                    id="UserProfile_page.Delete Address"
+                                    defaultMessage="Delete Address"
+                                />
+                            </Modal.Title>
+                            <button type="button" className="close" onClick={handleDeleteClose}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <FormattedMessage
+                                id="UserProfile_page.Are You Sure You Want to Delete This Address
+                                                Permanently?"
+                                defaultMessage="Are You Sure You Want to Delete This Address
+                                                Permanently?"
+                            />
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <button
+                                className="btn mr-2 btn-outline-danger btnradius"
+                                onClick={handleDeleteClose}
+                            >
+                                <FormattedMessage id="UserProfile_page.NO" defaultMessage="NO" />
+                            </button>
+                            <button
+                                onClick={() => {
+                                    deleteAddress();
+                                    handleDeleteClose();
+                                }}
+                                className="btn btn-danger btnradius"
+                            >
+                                <FormattedMessage id="UserProfile_page.YES" defaultMessage="YES" />
+                            </button>
+                        </Modal.Footer>
+                    </Modal>
                     <div className="col-lg-6">
                         <div className="card mt-4">
                             <div className="card-body ProfileCardBody text-center">
@@ -262,12 +280,19 @@ const Address = ({ intl }) => {
                                 <Modal show={show} onHide={handleClose} animation={false}>
                                     <div className="modal-content ContentLeft">
                                         <div className="modal-header">
-                                            <h4 className="modal-title" id="exampleModalLabel">
-                                                <FormattedMessage
-                                                    id="UserProfile_page.Add New Address"
-                                                    defaultMessage="Add New Address"
-                                                />
-                                            </h4>
+                                            {edit ? (
+                                                <h4 className="modal-title" id="exampleModalLabel">
+                                                    Edit Address
+                                                </h4>
+                                            ) : (
+                                                <h4 className="modal-title" id="exampleModalLabel">
+                                                    <FormattedMessage
+                                                        id="UserProfile_page.Add New Address"
+                                                        defaultMessage="Add New Address"
+                                                    />
+                                                </h4>
+                                            )}
+
                                             <button
                                                 type="button"
                                                 className="close"
@@ -275,7 +300,10 @@ const Address = ({ intl }) => {
                                                 aria-label="Close"
                                             >
                                                 <span
-                                                    onClick={() => setShow(!show)}
+                                                    onClick={() => {
+                                                        setEdit();
+                                                        setShow(!show);
+                                                    }}
                                                     aria-hidden="true"
                                                 >
                                                     ×
@@ -302,11 +330,12 @@ const Address = ({ intl }) => {
                                                                 onChange={formik.handleChange}
                                                                 value={formik.values.Address}
                                                             />
-                                                            {formik.errors.Address && (
-                                                                <p style={{ color: 'red' }}>
-                                                                    {formik.errors.Address}
-                                                                </p>
-                                                            )}
+                                                            {formik.errors.Address &&
+                                                                formik.touched.Address && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.Address}
+                                                                    </p>
+                                                                )}
                                                         </div>
                                                         <div className="form-group">
                                                             <label htmlFor="inputAddress2">
@@ -324,11 +353,12 @@ const Address = ({ intl }) => {
                                                                 onChange={formik.handleChange}
                                                                 value={formik.values.Area}
                                                             />
-                                                            {formik.errors.Area && (
-                                                                <p style={{ color: 'red' }}>
-                                                                    {formik.errors.Area}
-                                                                </p>
-                                                            )}
+                                                            {formik.errors.Area &&
+                                                                formik.touched.Area && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.Area}
+                                                                    </p>
+                                                                )}
                                                         </div>
                                                         <div className="form-group">
                                                             <label htmlFor="inputAddress2">
@@ -346,11 +376,12 @@ const Address = ({ intl }) => {
                                                                 onChange={formik.handleChange}
                                                                 value={formik.values.Landmark}
                                                             />
-                                                            {formik.errors.Landmark && (
-                                                                <p style={{ color: 'red' }}>
-                                                                    {formik.errors.Landmark}
-                                                                </p>
-                                                            )}
+                                                            {formik.errors.Landmark &&
+                                                                formik.touched.Landmark && (
+                                                                    <p style={{ color: 'red' }}>
+                                                                        {formik.errors.Landmark}
+                                                                    </p>
+                                                                )}
                                                         </div>
                                                         <div className="form-row">
                                                             <div className="form-group col-md-6">
@@ -369,11 +400,12 @@ const Address = ({ intl }) => {
                                                                     onChange={formik.handleChange}
                                                                     value={formik.values.City}
                                                                 />
-                                                                {formik.errors.City && (
-                                                                    <p style={{ color: 'red' }}>
-                                                                        {formik.errors.City}
-                                                                    </p>
-                                                                )}
+                                                                {formik.errors.City &&
+                                                                    formik.touched.City && (
+                                                                        <p style={{ color: 'red' }}>
+                                                                            {formik.errors.City}
+                                                                        </p>
+                                                                    )}
                                                             </div>
 
                                                             <div className="form-group col-md-6">
@@ -392,11 +424,12 @@ const Address = ({ intl }) => {
                                                                     onChange={formik.handleChange}
                                                                     value={formik.values.Zip}
                                                                 />
-                                                                {formik.errors.Zip && (
-                                                                    <p style={{ color: 'red' }}>
-                                                                        {formik.errors.Zip}
-                                                                    </p>
-                                                                )}
+                                                                {formik.errors.Zip &&
+                                                                    formik.touched.Zip && (
+                                                                        <p style={{ color: 'red' }}>
+                                                                            {formik.errors.Zip}
+                                                                        </p>
+                                                                    )}
                                                             </div>
                                                         </div>
                                                         <div className="form-row">
@@ -444,11 +477,15 @@ const Address = ({ intl }) => {
                                                                         />
                                                                     </option>
                                                                 </select>
-                                                                {formik.errors.AddressType && (
-                                                                    <p style={{ color: 'red' }}>
-                                                                        {formik.errors.AddressType}
-                                                                    </p>
-                                                                )}
+                                                                {formik.errors.AddressType &&
+                                                                    formik.touched.AddressType && (
+                                                                        <p style={{ color: 'red' }}>
+                                                                            {
+                                                                                formik.errors
+                                                                                    .AddressType
+                                                                            }
+                                                                        </p>
+                                                                    )}
                                                             </div>
                                                         </div>
 
@@ -458,10 +495,14 @@ const Address = ({ intl }) => {
                                                             data-dismiss="modal"
                                                             aria-label="Close"
                                                         >
-                                                            <FormattedMessage
-                                                                id="UserProfile_page.Add Address"
-                                                                defaultMessage="Add Address"
-                                                            />
+                                                            {edit ? (
+                                                                <>{'Edit Address'}</>
+                                                            ) : (
+                                                                <FormattedMessage
+                                                                    id="UserProfile_page.Add Address"
+                                                                    defaultMessage="Add Address"
+                                                                />
+                                                            )}
                                                         </button>
                                                     </form>
                                                 </div>

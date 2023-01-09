@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 import image from '../../../assets/images/Tastes_on_way.png';
 import './UserProfileHeader.css';
 import { FiLogOut } from 'react-icons/fi';
-import { CgProfile } from 'react-icons/cg';
+import { CgProfile, CgShoppingCart } from 'react-icons/cg';
 import { useContext } from 'react';
 import { Context } from '../../common/Wrapper';
 
@@ -79,6 +79,12 @@ const UserProfileHeader = () => {
                                         id="UserProfile_page.Profile"
                                         defaultMessage="Profile"
                                     />
+                                </button>
+                                <button
+                                    className="dropdown-item"
+                                    onClick={() => navigate('/cartDetails')}
+                                >
+                                    <CgShoppingCart /> Cart
                                 </button>
 
                                 <button className="dropdown-item logout-btn" onClick={logOut}>

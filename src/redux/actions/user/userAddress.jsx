@@ -5,6 +5,7 @@ import {
     SET_USER_ADDRESS,
 } from '../../types/types';
 import { getApi } from '../../api';
+import { setItem } from '../../../utils/utils';
 
 export const userAddresRequest = () => ({
     type: GET_USER_ADDRESS_REQUEST,
@@ -27,6 +28,7 @@ export const fetchUserAddress = () => async (dispatch) => {
     dispatch(userAddresRequest());
     return getApi(`get-addresses`)
         .then((res) => {
+            setItem('userAddress', JSON.stringify(res.data));
             dispatch(userAddressSuccess(res.data));
             return res ?? res?.data ?? res?.data?.responseData ?? null;
         })
