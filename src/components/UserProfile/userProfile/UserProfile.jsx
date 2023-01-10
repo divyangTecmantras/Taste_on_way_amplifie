@@ -20,12 +20,14 @@ const UserProfile = () => {
         customerSupport,
         addUserAddresssuccess,
         updateUserProfile,
+        setAddressSuccess,
     } = useSelector((state) => ({
         deleteUserAddress: state?.deleteAddress?.payload,
         customerSupportLoading: state?.customerSupport?.loading,
         customerSupport: state?.customerSupport?.payload.data,
         addUserAddresssuccess: state?.addUserAddress?.payload?.data,
         updateUserProfile: state?.updateUserProfile?.payload?.data,
+        setAddressSuccess: state?.setAddress?.payload,
     }));
     const lat = getItem('lat');
     const long = getItem('long');
@@ -59,7 +61,13 @@ const UserProfile = () => {
         dispatch(fetchUserInfo());
         dispatch(fetchUserAddress());
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [deleteUserAddress, customerSupport, addUserAddresssuccess, updateUserProfile]);
+    }, [
+        deleteUserAddress,
+        customerSupport,
+        addUserAddresssuccess,
+        updateUserProfile,
+        setAddressSuccess,
+    ]);
     return (
         <>
             {customerSupportLoading ? (

@@ -189,14 +189,6 @@ const YourOrder = () => {
                                                         {data.order_final_total}
                                                     </span>
                                                 </div>
-                                                <div className="BadgeMainDiv">
-                                                    <button className="btn btn-danger mt-3">
-                                                        <FormattedMessage
-                                                            id="UserProfile_page.Reorder"
-                                                            defaultMessage="Reorder"
-                                                        />
-                                                    </button>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

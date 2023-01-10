@@ -17,10 +17,6 @@ const OrderDetails = () => {
         orderDetails: state?.orderDetails?.payload?.data,
         cancelOrderResponse: state?.cancelOrder?.payload?.data,
     }));
-    console.log(
-        '🚀 ~ file: OrderDetails.jsx:20 ~ const{orderDetails,cancelOrderResponse}=useSelector ~ cancelOrderResponse',
-        cancelOrderResponse,
-    );
 
     const date = orderDetails?.date_for_incoming_order;
 
@@ -33,7 +29,7 @@ const OrderDetails = () => {
         });
 
         const orderTime = JSON.parse(getItem('orderTime'));
-        if (orderTime > currentTime) {
+        if (currentTime > orderTime) {
             setCancel(true);
         }
 

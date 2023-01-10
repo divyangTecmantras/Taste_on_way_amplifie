@@ -28,7 +28,7 @@ const EditProfile = () => {
                     ? '2'
                     : ''
                 : '',
-            Birthdate: dataEdtit?.Birthdate,
+            Birthdate: dataEdtit?.date_of_birth,
         },
 
         validationSchema: yup.object({
@@ -42,6 +42,7 @@ const EditProfile = () => {
                 gender: values.gender,
                 date_of_birth: values.Birthdate,
             };
+
             dispatch(updateUserProfile(ProfileData));
             setShow(!show);
         },
