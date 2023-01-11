@@ -7791,6 +7791,11 @@ react-rating-stars-component@^2.2.0:
   resolved "https://registry.yarnpkg.com/react-rating-stars-component/-/react-rating-stars-component-2.2.0.tgz#e947c6a1f59278e6fea1098453f43cb15d077c14"
   integrity sha512-A3lgLxumfFQQicKQmxacZ91fq/zRaVWlCPnVodJmJV6obvod4/yCotetN9WuyBiUfnKsEFDBo/8B85ocwmL7ng==
 
+react-razorpay@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-razorpay/-/react-razorpay-1.2.0.tgz#5b5b605d5476f3db94def7fc98c2705e18abef0b"
+  integrity sha512-UMQF8od/yKPPgXcbv5+IaCDeRrZdeu9HCYsKjALpSsPMtPP1LU0QBcjJVYsPi1vjdrlXbrUH9/YhOVMcvFVsIQ==
+
 react-redux@^8.0.2:
   version "8.0.5"
   resolved "https://registry.npmjs.org/react-redux/-/react-redux-8.0.5.tgz"

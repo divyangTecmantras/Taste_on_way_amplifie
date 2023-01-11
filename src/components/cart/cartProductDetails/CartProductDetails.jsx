@@ -8,6 +8,7 @@ import { fetchGetPromoCodeData } from '../../../redux/actions/promoCode/getPromo
 import { fetchApplyPromoCode } from '../../../redux/actions/promoCode/applyPromoCode';
 import { fetchRemovePromoCode } from '../../../redux/actions/promoCode/removePromoCode';
 import { useDispatch, useSelector } from 'react-redux';
+import useRazorpay from 'react-razorpay';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Modal } from 'react-bootstrap';
@@ -20,7 +21,9 @@ import offercodeicon from '../../../assets/images/offercodeicon.png';
 import checkListIcon from '../../../assets/images/check-list-icon.png';
 import './CartProductDetails.css';
 import Toastify from '../../common/Toastify';
+
 const CartProductDetails = () => {
+    const Razorpay = useRazorpay();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [itemChecked, setItemChecked] = useState([]);
@@ -84,7 +87,7 @@ const CartProductDetails = () => {
                                 color: '#3399cc',
                             },
                         };
-                        const rzp = new window.Razorpay(options);
+                        const rzp = new Razorpay(options);
                         rzp.open();
                     }
                     break;
