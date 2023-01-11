@@ -1,18 +1,34 @@
 import React from 'react';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCreateReferralCode } from '../../../redux/actions/referralCode/createReferralCode';
 const RefrralCode = () => {
-    const [code, setCode] = useState('copy');
+    const dispatch = useDispatch();
+    const { refrralCode } = useSelector((state) => ({
+        refrralCode: state?.referralCode?.payload?.data,
+    }));
+    console.log(
+        '🚀 ~ file: RefrralCode.jsx:5 ~ const{refrralCode}=useSelector ~ refrralCode',
+        refrralCode,
+    );
     const handleShow = () => {
-        setCode('copide');
+        dispatch(fetchCreateReferralCode());
     };
     return (
         <>
-            <div className="sd ">
-                <button className="btn btn-danger" onClick={handleShow}>
-                    Generate Refferal code
-                </button>
-            </div>
-            <h3>{code}</h3>
+            {refrralCode === 'null' ? (
+                <div className="sd ">
+                    <button className="btn btn-danger" onClick={handleShow}>
+                        Generate Refferal code
+                    </button>
+                </div>
+            ) : (
+                <div className="sd ">
+                    <div>
+                        {`Your Referral Code : `}
+                        <b>{`${refrralCode?.code}`}</b>
+                    </div>
+                </div>
+            )}
         </>
     );
 };

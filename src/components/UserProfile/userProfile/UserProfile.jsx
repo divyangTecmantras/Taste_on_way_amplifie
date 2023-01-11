@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../../../assets/styles/media.css';
 import './UserProfile.css';
 import { getItem } from '../../../utils/utils';
+import { fetchgetReferralCode } from '../../../redux/actions/referralCode/getReferralCode';
 
 const UserProfile = () => {
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const UserProfile = () => {
         addUserAddresssuccess,
         updateUserProfile,
         setAddressSuccess,
+        createReferralCode,
     } = useSelector((state) => ({
         deleteUserAddress: state?.deleteAddress?.payload,
         customerSupportLoading: state?.customerSupport?.loading,
@@ -28,6 +30,7 @@ const UserProfile = () => {
         addUserAddresssuccess: state?.addUserAddress?.payload?.data,
         updateUserProfile: state?.updateUserProfile?.payload?.data,
         setAddressSuccess: state?.setAddress?.payload,
+        createReferralCode: state?.createReferralCode?.payload,
     }));
     const lat = getItem('lat');
     const long = getItem('long');
@@ -60,6 +63,7 @@ const UserProfile = () => {
         );
         dispatch(fetchUserInfo());
         dispatch(fetchUserAddress());
+        dispatch(fetchgetReferralCode());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         deleteUserAddress,
@@ -67,6 +71,7 @@ const UserProfile = () => {
         addUserAddresssuccess,
         updateUserProfile,
         setAddressSuccess,
+        createReferralCode,
     ]);
     return (
         <>
