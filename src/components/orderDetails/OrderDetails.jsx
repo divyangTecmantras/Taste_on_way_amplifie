@@ -9,6 +9,7 @@ import rupee from '../../assets/images/rupee.png';
 import '../../assets/styles/media.css';
 import './OrderDetails.css';
 import { createOrderClean } from '../../redux/actions/order/createOrder';
+import moment from 'moment/moment';
 
 const OrderDetails = () => {
     const dispatch = useDispatch();
@@ -19,26 +20,28 @@ const OrderDetails = () => {
     }));
 
     const date = orderDetails?.date_for_incoming_order;
+    const orderId = getItem('orderID');
 
     useEffect(() => {
+        const apiData = {
+            order_id: orderId,
+        };
+        dispatch(fetchCreateOrderDetails(apiData));
         const newDate = new Date();
         const currentTime = newDate.toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
-            hour12: false,
+            hour12: true,
         });
 
         const orderTime = JSON.parse(getItem('orderTime'));
-        if (currentTime > orderTime) {
+
+        const date1 = moment(currentTime, 'HH:mm A');
+        const date2 = moment(orderTime, 'HH:mm A');
+
+        if (date1.isAfter(date2)) {
             setCancel(true);
         }
-
-        const orderId = getItem('orderID');
-        const apiData = {
-            order_id: orderId,
-        };
-
-        dispatch(fetchCreateOrderDetails(apiData));
         if (cancelOrderResponse) {
             setCancel(true);
         }
