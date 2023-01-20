@@ -6,7 +6,6 @@ const RefrralCode = () => {
     const { refrralCode } = useSelector((state) => ({
         refrralCode: state?.referralCode?.payload?.data,
     }));
-
     const handleShow = () => {
         dispatch(fetchCreateReferralCode());
     };
