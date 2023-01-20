@@ -49,3 +49,8 @@
 .ScrollbarHidden::-webkit-scrollbar {
   display: none;
 }
+
+.ProfileCardBody .card-link:disabled {
+  background: transparent;
+  color: unset;
+}

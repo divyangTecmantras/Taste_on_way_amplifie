@@ -21,6 +21,6 @@ const config = {
 
 export const allConfig = config;
 
-const environmentConfig = 'production';
+const environmentConfig = 'staging';
 
 export default config[environmentConfig] ?? config.production;

@@ -126,7 +126,7 @@ const EditProfile = () => {
                                             </div>
                                         </div>
                                         <div className="form-row">
-                                            <div className="form-group col-md-12">
+                                            <div className="form-group col-md-12 bm-1">
                                                 <label htmlFor="inputEmail4" className="Labelmodel">
                                                     <FormattedMessage
                                                         id="UserProfile_page.Gender"
@@ -137,9 +137,9 @@ const EditProfile = () => {
                                             <>
                                                 <div
                                                     value={formik.values.gender}
-                                                    className="form-row ml-1"
+                                                    className="form-row ml-1 EditFormCheckbox"
                                                 >
-                                                    <div className="form-check form-check-inline">
+                                                    <div className="form-check form-check-inline form-check Checkedinput">
                                                         <input
                                                             className="form-check-input"
                                                             type="radio"

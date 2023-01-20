@@ -7,6 +7,7 @@ import { getItem } from '../../../utils/utils';
 import { useDispatch } from 'react-redux';
 import home from '../../../assets/images/home.png';
 import addNewAddress from '../../../assets/images/addnewaddress.png';
+import cancelPolicy from '../../../assets/images/cancellation-policy-banner.png';
 import { injectIntl } from 'react-intl';
 import './CartAddress.css';
 import { FormattedMessage } from 'react-intl';
@@ -91,61 +92,68 @@ const CartAddress = ({ intl }) => {
                         {userAddress?.data?.length > 0 &&
                             userAddress?.data?.map((d) => {
                                 return (
-                                    <div className="col DivBoxAddress" key={d.id}>
-                                        <img src={home} alt="homeIcon" />
-                                        <span className="HomeAddress">
-                                            <FormattedMessage
-                                                id="Cart_page.Home"
-                                                defaultMessage="Home"
-                                            />
-                                        </span>
-                                        <p className="TextAdd AddTextWrap">
-                                            {userAddress?.data
-                                                ? `${d.address},${d.area},${d.land_mark},${d.pin_code}.`
-                                                : ''}
-                                        </p>
-                                        {d.is_delivery_address == 'Yes' ? (
-                                            <button
-                                                type="button"
-                                                className="btn btn-danger mt-5 BtnDeliverHere"
-                                                data-dismiss="modal"
-                                                disabled
-                                            >
-                                                Delivery Address
-                                            </button>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                className="btn btn-danger mt-5 BtnDeliverHere"
-                                                data-dismiss="modal"
-                                                onClick={() => handelDeliverHere(d.id)}
-                                            >
+                                    <div className="col-lg-6" key={d.id}>
+                                        <div className="col-lg-12 DivBoxAddress">
+                                            <img src={home} alt="homeIcon" />
+                                            <span className="HomeAddress">
                                                 <FormattedMessage
-                                                    id="Cart_page.Deliver Here"
-                                                    defaultMessage="Deliver Here"
+                                                    id="Cart_page.Home"
+                                                    defaultMessage="Home"
                                                 />
-                                            </button>
-                                        )}
+                                            </span>
+                                            <p className="TextAdd AddTextWrap">
+                                                {userAddress?.data
+                                                    ? `${d.address},${d.area},${d.land_mark},${d.pin_code}.`
+                                                    : ''}
+                                            </p>
+                                            {d.is_delivery_address == 'Yes' ? (
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-danger mt-5 BtnDeliverHere"
+                                                    data-dismiss="modal"
+                                                    disabled
+                                                >
+                                                    Delivery Address
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-danger mt-5 BtnDeliverHere"
+                                                    data-dismiss="modal"
+                                                    onClick={() => handelDeliverHere(d.id)}
+                                                >
+                                                    <FormattedMessage
+                                                        id="Cart_page.Deliver Here"
+                                                        defaultMessage="Deliver Here"
+                                                    />
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
                                 );
                             })}
 
-                        <div className="col DivBoxAddress">
-                            <img src={addNewAddress} alt="addNewAddress" />
-                            <span className="HomeAddress">
-                                <FormattedMessage
-                                    id="Cart_page.Add New Address"
-                                    defaultMessage="Add New Address"
-                                />
-                            </span>
-                            <p></p>
-                            <button
-                                type="button"
-                                className="btn btn-danger BtnAddnewAdd"
-                                onClick={() => handleShow()}
-                            >
-                                <FormattedMessage id="Cart_page.Add New" defaultMessage="Add New" />
-                            </button>
+                        <div className="col-lg-6">
+                            <div className="col-lg-12 DivBoxAddress">
+                                <img src={addNewAddress} alt="addNewAddress" />
+                                <span className="HomeAddress">
+                                    <FormattedMessage
+                                        id="Cart_page.Add New Address"
+                                        defaultMessage="Add New Address"
+                                    />
+                                </span>
+                                <p></p>
+                                <button
+                                    type="button"
+                                    className="btn btn-danger BtnAddnewAdd"
+                                    onClick={() => handleShow()}
+                                >
+                                    <FormattedMessage
+                                        id="Cart_page.Add New"
+                                        defaultMessage="Add New"
+                                    />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <Modal show={show} onHide={handleShow} animation={false}>
@@ -362,6 +370,33 @@ const CartAddress = ({ intl }) => {
                             <div className="modal-footer ModalHomeFooterProfile" />
                         </div>
                     </Modal>
+                </div>
+            </div>
+            <div className="row mt-5 mb-5">
+                <div className="col-lg-12">
+                    <div className="card RespCheckoutCard">
+                        <img
+                            src={cancelPolicy}
+                            className="card-img RespCancelPolicyImg"
+                            alt="cancellation policy"
+                        />
+                        <div className="card-img-overlay CheckoutCancelPolicyBanner">
+                            <h5 className="card-title CancelBannerFont">
+                                Review your order and address details to avoid cancellations
+                            </h5>
+                            <p className="card-text">
+                                <span className="CancelBannerFont">Note :</span> If you cancel
+                                within 60 seconds of placing your order, a 100% refund will be
+                                issued. No refund for cancellations made after 60 seconds.
+                            </p>
+                            <p className="card-text CancelBannerFont">
+                                Avoid cancellation as it leads to food wastage.
+                            </p>
+                            <a href="/" className="ReadCancellationPolicy">
+                                Read cancellation policy
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

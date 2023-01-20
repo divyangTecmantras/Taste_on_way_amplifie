@@ -20,3 +20,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+
+.RespmargTop h2 {
+  font-size: 1.5rem;
+}

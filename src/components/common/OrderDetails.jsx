@@ -251,7 +251,7 @@ const OrderDetails = (e) => {
                                                     defaultMessage="Picked Up From"
                                                 />
                                             </span>
-                                            <span className="floatRightButton FloatRightAddress">
+                                            <span className="floatRightButton">
                                                 {data?.business_owner_address?.address}
                                             </span>
                                         </div>
@@ -265,7 +265,7 @@ const OrderDetails = (e) => {
                                                 defaultMessage="You Rated"
                                             />
 
-                                            <span className="badge badge-success">
+                                            <span className="badge badge-success ml-2">
                                                 5
                                                 <img src={star} className="starimg" alt="star" />
                                             </span>

@@ -179,3 +179,10 @@
     margin-right: 15px;
   }
 }
+.imgveg {
+  width: 20px;
+}
+
+.VegImgRow .bg-transparent {
+  padding: 0;
+}

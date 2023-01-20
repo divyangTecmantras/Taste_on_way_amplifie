@@ -35,6 +35,7 @@ const CartProductDetails = () => {
     const lat = getItem('lat');
     const long = getItem('long');
     const userAddress = JSON.parse(getItem('userAddress'));
+    const orderTime = new Date();
 
     const defaultAddress =
         userAddress?.data?.length >= 0
@@ -47,11 +48,19 @@ const CartProductDetails = () => {
             cartItemId: state?.cartItems?.id,
             createOrder: state?.createOrder?.payload?.data,
             promoCodes: state?.promoCodes?.payload?.data,
-            setAddresas: state?.userAddress?.data,
+            setAddress: state?.userAddress?.data,
             userDetails: state?.userInfo?.payload?.data,
         }));
 
     useEffect(() => {
+        const menuItems = transferDataAddToCart(cartProducts);
+        const apiData = {
+            lat: lat,
+            long: long,
+            redious: '5',
+            menu_items: menuItems,
+        };
+        dispatch(fetchAddToCart(apiData));
         dispatch(fetchGetPromoCodeData());
         if (createOrder) {
             switch ('razorpay') {
@@ -75,6 +84,7 @@ const CartProductDetails = () => {
                                     status: '2',
                                     previous_razorpay_order_id: createOrder.Razorpay_order_id,
                                 };
+                                setItem('orderTime', orderTime);
                                 dispatch(fetchCreateOrderTransaction(apiData));
                                 navigate('/orderDetails');
                             },
@@ -267,7 +277,7 @@ const CartProductDetails = () => {
                                             <div key={data.id} className="">
                                                 <hr />
                                                 <div className="row">
-                                                    <div className="col">
+                                                    <div className="col-md-5">
                                                         <img
                                                             src={data?.item?.[0]?.picture}
                                                             alt="deliciousdosapay"
@@ -278,7 +288,7 @@ const CartProductDetails = () => {
                                                             }}
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-md-7">
                                                         <div className="DeliciousDosaFont">
                                                             {data?.name}
                                                         </div>
@@ -286,7 +296,7 @@ const CartProductDetails = () => {
                                                 </div>
                                                 <div className="row VegImgRow mt-4">
                                                     <div className="col-lg-1">
-                                                        <img src={veg} alt="" />
+                                                        <img src={veg} alt="" className="imgveg" />
                                                     </div>
                                                     <div className="col-lg-4 TextColor">
                                                         {cartProducts?.map((ing) => {
@@ -525,7 +535,7 @@ const CartProductDetails = () => {
                                         );
                                     })}
                             </div>
-                            <div className="row mt-5">
+                            <div className="row">
                                 <div className="col">
                                     <div className="row">
                                         <div className="col-lg-12">
@@ -986,27 +996,6 @@ const CartProductDetails = () => {
                 ) : (
                     <div className="col">{`Please select Address for delivery`}</div>
                 )}
-            </div>
-
-            <div className="row PaymentBar mt-5 mb-5">
-                <div className="col ">
-                    <div className="DeliciousDosaFontNew">
-                        Review your order and address details to avoid cancellations
-                    </div>
-                    <div className="TextColor mt-3">
-                        <span className="DeliciousDosaFontNew">Note :</span> If you cancel within 60
-                        seconds of placing your order, a 100% refund will be issued. No refund for
-                        cancellations made after 60 seconds.
-                    </div>
-
-                    <div className="DeliciousDosaFontNew mt-3">
-                        Avoid cancellation as it leads to food wastage.
-                    </div>
-
-                    <div className="DeliciousDosaFontNew RedColorFont mt-3">
-                        Read cancellation policy
-                    </div>
-                </div>
             </div>
         </div>
     );

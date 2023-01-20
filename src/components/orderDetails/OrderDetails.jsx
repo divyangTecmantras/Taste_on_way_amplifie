@@ -27,19 +27,15 @@ const OrderDetails = () => {
             order_id: orderId,
         };
         dispatch(fetchCreateOrderDetails(apiData));
-        const newDate = new Date();
-        const currentTime = newDate.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true,
-        });
+        const currentTime = new Date();
+        let currentTime1 = moment(currentTime);
 
-        const orderTime = JSON.parse(getItem('orderTime'));
-
-        const date1 = moment(currentTime, 'HH:mm A');
-        const date2 = moment(orderTime, 'HH:mm A');
-
-        if (date1.isAfter(date2)) {
+        const orderTime = getItem('orderTime');
+        let time = moment(orderTime);
+        let orderTime1 = time.add(60, 'seconds');
+        const time1 = moment(currentTime1);
+        const time2 = moment(orderTime1);
+        if (time1.isAfter(time2)) {
             setCancel(true);
         }
         if (cancelOrderResponse) {

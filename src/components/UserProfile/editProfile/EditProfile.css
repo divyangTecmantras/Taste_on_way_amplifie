@@ -1,37 +1,39 @@
 .NameProfile {
-    margin-top: 110px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 24px;
-    position: relative;
-    /* left: 5px;*/
-  }
-  .BtnProfile {
-    float: right;
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: 500;
-    
-  }
-  .ImgProfile {
-    width: 25px;
-    position: relative;
-    bottom: 3px;
-  }
-  .Labelmodel {
-    vertical-align: super;
-    font-size: 16px;
-    color: #999999;
-    font-weight: 500;
-  }
-  .ModalHomeFooterProfile {
-    border-top: 0px !important;
-    padding-top: 0px;
-    padding-bottom: 35px;
-  }
-  .floatRightButton {
-    float: right;
-  }
-  .btnradius {
-    border-radius: 0px;
-  }
+  margin-top: 110px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  position: relative;
+  /* left: 5px;*/
+}
+.BtnProfile {
+  float: right;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.ImgProfile {
+  width: 25px;
+  position: relative;
+  bottom: 3px;
+}
+.Labelmodel {
+  vertical-align: super;
+  font-size: 16px;
+  color: #999999;
+  font-weight: 500;
+}
+.ModalHomeFooterProfile {
+  border-top: 0px !important;
+  padding-top: 0px;
+  padding-bottom: 35px;
+}
+.floatRightButton {
+  float: right;
+}
+.btnradius {
+  border-radius: 0px;
+}
+input[type='radio']#Red {
+  accent-color: #ff0000;
+}

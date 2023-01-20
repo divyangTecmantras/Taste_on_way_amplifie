@@ -36,7 +36,7 @@ export function flattenMessages(nestedMessages, prefix = '') {
 }
 
 export const transferDataAddToCart = (data) => {
-    return data.map((item) => {
+    return data?.map((item) => {
         return {
             id: item.id,
             name: item.name,
